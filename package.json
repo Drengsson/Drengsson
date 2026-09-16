@@ -1,6 +1,0 @@
-{
-  "name": "drengsson-website",
-  "private": true,
-  "type": "module",
-  "description": "drengsson.is — static site with a single Vercel serverless function for the contact form. No build step, no framework, no dependencies."
-}
