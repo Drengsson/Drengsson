@@ -3,269 +3,140 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Drengsson | Documentary Films & Photography</title>
-<meta name="description" content="Documentary films, photography and written stories by Stefán Drengsson, capturing the people, work and experiences behind your business." />
-<link rel="canonical" href="https://drengsson.is/en/" />
-<link rel="alternate" hreflang="is" href="https://drengsson.is/" />
-<link rel="alternate" hreflang="en" href="https://drengsson.is/en/" />
-<link rel="alternate" hreflang="x-default" href="https://drengsson.is/" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Drengsson" />
-<meta property="og:title" content="Drengsson | Documentary Films & Photography" />
-<meta property="og:description" content="Documentary films, photography and written stories by Stefán Drengsson, capturing the people, work and experiences behind your business." />
-<meta property="og:url" content="https://drengsson.is/en/" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:locale:alternate" content="is_IS" />
-<meta property="og:image" content="https://drengsson.is/assets/og-image.png" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<title>Drengsson — from story to screen</title>
+<meta name="description" content="Drengsson — storytelling, production, campaigns, web." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/styles.css" />
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Stefán Drengsson",
-  "url": "https://drengsson.is/en/",
-  "email": "mailto:drengsson@gmail.com",
-  "jobTitle": "Filmmaker, photographer and journalist",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Drengsson"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Reykjavík",
-    "addressCountry": "IS"
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0b0a;
+    --fg:#f4f1ea;
+    --muted:#9a9488;
+    --line:#3a3630;
   }
-}
-</script>
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    height:100%;
+    background:var(--bg);
+    color:var(--fg);
+  }
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Inter', -apple-system, sans-serif;
+    padding:24px;
+  }
+  .stage{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:28px;
+  }
+  .mark{
+    position:relative;
+    width:96px;
+    height:96px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .mark::before,
+  .mark::after,
+  .mark .c3,
+  .mark .c4{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    border-color:var(--fg);
+    border-style:solid;
+    opacity:.85;
+  }
+  .mark::before{ /* top-left */
+    top:0; left:0;
+    border-width:1.5px 0 0 1.5px;
+  }
+  .mark::after{ /* bottom-right */
+    bottom:0; right:0;
+    border-width:0 1.5px 1.5px 0;
+  }
+  .mark .c3{ /* top-right */
+    top:0; right:0;
+    border-width:1.5px 1.5px 0 0;
+  }
+  .mark .c4{ /* bottom-left */
+    bottom:0; left:0;
+    border-width:0 0 1.5px 1.5px;
+  }
+  .mark span{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:40px;
+    line-height:1;
+    transform:translateY(-2px);
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:400;
+    font-size:clamp(2.2rem, 6vw, 3.4rem);
+    letter-spacing:0.02em;
+    margin:0;
+  }
+  .tagline{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.05rem;
+    color:var(--muted);
+    margin:0;
+  }
+  .services{
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:6px 0 0;
+  }
+  .divider{
+    width:36px;
+    height:1px;
+    background:var(--line);
+    margin:4px 0;
+  }
+  .contact{
+    font-size:0.85rem;
+    color:var(--muted);
+  }
+  .contact a{
+    color:var(--fg);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1px;
+  }
+  .contact a:hover{
+    border-color:var(--fg);
+  }
+</style>
 </head>
 <body>
-<a class="skip-link" href="#content">Skip to content</a>
-
-<header class="site-header">
-  <div class="container">
-    <a class="brand" href="/en/">
-      <span class="brand-mark" aria-hidden="true">
-        <div class="c3"></div>
-        <div class="c4"></div>
-      </span>
-      <span class="brand-name">Drengsson</span>
-    </a>
-
-    <nav class="nav-desktop" aria-label="Main navigation">
-      <a href="#work">Work</a>
-      <a href="#approach">Approach</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="nav-actions">
-      <a class="lang-switch" href="/" hreflang="is">IS</a>
-      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/>
-        </svg>
-      </button>
+  <div class="stage">
+    <div class="mark">
+      <span>D</span>
+      <div class="c3"></div>
+      <div class="c4"></div>
     </div>
+    <div>
+      <h1>Drengsson</h1>
+      <p class="tagline">from story to screen</p>
+    </div>
+    <p class="services">Storytelling &nbsp;·&nbsp; Production &nbsp;·&nbsp; Campaigns &nbsp;·&nbsp; Web</p>
+    <div class="divider"></div>
+    <p class="contact">Site in progress — reach me at <a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a></p>
   </div>
-
-  <nav class="nav-mobile" id="mobile-menu" data-nav-mobile aria-label="Mobile menu">
-    <a href="#work">Work</a>
-    <a href="#approach">Approach</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <div class="nav-mobile-actions">
-      <a class="btn btn-primary" href="#contact">Let's talk about your project</a>
-      <a class="btn btn-outline" href="/" hreflang="is">IS</a>
-    </div>
-  </nav>
-</header>
-
-<main id="content">
-
-  <section class="hero">
-    <div class="container">
-      <p class="eyebrow">Film · Photography · Storytelling</p>
-      <h1>Stories from real life.</h1>
-      <p class="hero-intro">I help businesses show who they are through films, photographs and written stories. The people, the work and the moments of everyday life provide the material.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#contact">Let's talk about your project</a>
-        <a class="btn btn-outline" href="#approach">How I work</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="section-border-top">
-    <div class="container">
-      <div class="section-head">
-        <h2>Selected work</h2>
-      </div>
-      <div class="work-empty">
-        <p>Selected work is on its way here — I only want to show projects I have full clearance to publish, with the right context about the people and the story behind them.</p>
-        <p>In the meantime, here's how I work and what you can expect.</p>
-        <a class="btn btn-outline" href="#approach">See my approach</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="approach" class="alt section-border-top">
-    <div class="container">
-      <div class="section-head">
-        <h2>Closer to what actually happens.</h2>
-      </div>
-      <p class="approach-body">In a world where AI can generate convincing images and text, I want to bring people closer to what actually happens. I visit the places, meet the people and learn how they work. Those encounters become stories that help customers understand your business and what it has to offer.</p>
-    </div>
-  </section>
-
-  <section class="section-border-top">
-    <div class="container">
-      <div class="section-head">
-        <h2>What would you like people to see?</h2>
-        <p class="lede">We start with what you want to communicate, who you want to reach and where the material will be used.</p>
-      </div>
-
-      <div class="offer-grid">
-        <div class="offer-card">
-          <h3>People and their work</h3>
-          <p>Show the people, knowledge and working practices behind your business. Films and photographs that give customers an insight into what you do.</p>
-        </div>
-        <div class="offer-card">
-          <h3>Customer experiences</h3>
-          <p>Tell the story of an actual project through the people involved. We explore the challenge, how the work was done and what came from it.</p>
-        </div>
-        <div class="offer-card">
-          <h3>Places and experiences</h3>
-          <p>Capture the setting, people and moments that define an experience, helping viewers get a better sense of what awaits them.</p>
-        </div>
-      </div>
-
-      <div class="offer-support">
-        <p>One project can produce a film, photographs, short videos and written material for your website, social channels or presentations. We agree on the scope together.</p>
-        <p>We can work on an individual project or plan an ongoing series of stories.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="alt section-border-top">
-    <div class="container">
-      <div class="section-head">
-        <h2>How we work together</h2>
-      </div>
-      <div class="process-list">
-        <div class="process-step">
-          <span class="process-num" aria-hidden="true">01</span>
-          <div>
-            <h3>Find the story</h3>
-            <p>We discuss the goal, the people we want to reach and what the project should show.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <span class="process-num" aria-hidden="true">02</span>
-          <div>
-            <h3>Be there</h3>
-            <p>I get to know the people and their work, conduct interviews and capture what matters.</p>
-          </div>
-        </div>
-        <div class="process-step">
-          <span class="process-num" aria-hidden="true">03</span>
-          <div>
-            <h3>Shape and share it</h3>
-            <p>I turn the material into a clear story and adapt it for the places where it will be seen.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section-border-top">
-    <div class="container about-grid">
-      <div class="about-portrait">
-        <span class="brand-mark" aria-hidden="true">
-          <div class="c3"></div>
-          <div class="c4"></div>
-        </span>
-      </div>
-      <div class="about-copy">
-        <h2>I'm Stefán Drengsson.</h2>
-        <p>I'm a filmmaker, photographer and journalist with experience in investigative reporting and communications for businesses. What interests me is people: how they live, work and respond to challenges. I make time to listen, ask questions and give people room to tell their stories.</p>
-        <p>My background spans investigative journalism at RÚV and Kveikur — including reporting connected to the Samherji case and the book "Nothing to Hide" — to digital communications and content production for large companies. That mix of journalism and visual storytelling shapes how I approach every project.</p>
-        <p>I also take on website design and digital communications work for select clients, when it's the right fit.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="alt section-border-top">
-    <div class="container contact-grid">
-      <div class="contact-intro">
-        <h2>Tell me about your project.</h2>
-        <p>Do you have a story to tell or a project you'd like people to understand? Get in touch and we'll find a way to bring it to life.</p>
-        <p class="contact-direct">Or write directly to <a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a></p>
-      </div>
-
-      <form class="contact-form"
-            data-contact-form
-            data-success="Thank you for your message. I'll be in touch."
-            data-fail="Your message couldn't be sent. Please try again or use the email address on this page.">
-        <div class="form-row two">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" autocomplete="name" required />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" autocomplete="email" required />
-          </div>
-        </div>
-        <div class="field">
-          <label for="company">Company (optional)</label>
-          <input type="text" id="company" name="company" autocomplete="organization" />
-        </div>
-        <div class="field">
-          <label for="message">Tell me about your project</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-        <div>
-          <button class="btn btn-primary" type="submit" data-submit-btn data-sending="Sending…">Send message</button>
-        </div>
-        <p class="form-status" role="status" aria-live="polite" data-form-status></p>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <a class="brand" href="/en/">
-        <span class="brand-mark" aria-hidden="true">
-          <div class="c3"></div>
-          <div class="c4"></div>
-        </span>
-        <span class="brand-name">Drengsson</span>
-      </a>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="#work">Work</a>
-        <a href="#approach">Approach</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span id="year">2026</span> Drengsson · Stefán Drengsson</span>
-      <span><a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a> · <a href="/" hreflang="is">Íslenska</a></span>
-    </div>
-  </div>
-</footer>
-
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="/assets/script.js"></script>
 </body>
 </html>
