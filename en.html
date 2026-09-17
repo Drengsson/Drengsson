@@ -98,11 +98,28 @@
   .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
   @media (min-width:860px){ .nav-desktop{ display:flex; } .nav-toggle{ display:none; } .nav-mobile{ display:none !important; } }
 
-  .hero{ padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); border-bottom:1px solid var(--line-soft); }
+  .hero{ position:relative; overflow:hidden; padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); border-bottom:1px solid var(--line-soft); }
+  .hero .container{ position:relative; z-index:1; }
   .eyebrow{ font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
   .hero h1{ font-size:clamp(2.4rem, 6.4vw, 4.6rem); max-width:16ch; }
   .hero-intro{ margin-top:24px; max-width:46ch; font-size:clamp(1.02rem, 1.6vw, 1.18rem); color:var(--muted); }
   .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:40px; }
+
+  /* Decorative graphic system: Frame + Light (hero), Trace (contact). Purely
+     ornamental — aria-hidden, no pointer events, never carries content. */
+  .hero-deco{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+  .hero-light{ position:absolute; top:-15%; right:-8%; width:52%; max-width:560px; aspect-ratio:1; background:radial-gradient(circle at 55% 45%, rgba(244,241,234,.16), rgba(244,241,234,.05) 42%, transparent 68%); filter:blur(30px); }
+  .hero-frame-corner{ position:absolute; width:clamp(22px, 4vw, 40px); height:clamp(22px, 4vw, 40px); border-color:rgba(244,241,234,.4); border-style:solid; }
+  .hero-frame-corner.f-tl{ top:clamp(20px, 6vw, 64px); left:clamp(0px, 2vw, 24px); border-width:1px 0 0 1px; }
+  .hero-frame-corner.f-br{ bottom:clamp(16px, 5vw, 48px); right:clamp(0px, 2vw, 24px); border-width:0 1px 1px 0; }
+  @media (max-width:640px){
+    .hero-frame-corner{ width:18px; height:18px; }
+    .hero-frame-corner.f-tl{ top:12px; left:0; }
+    .hero-frame-corner.f-br{ bottom:12px; right:0; }
+    .hero-light{ width:75%; top:-18%; right:-18%; }
+  }
+  .trace-accent{ display:block; width:84px; height:32px; margin:10px 0 0 -4px; opacity:.55; pointer-events:none; }
+  @media (max-width:640px){ .trace-accent{ display:none; } }
 
   section{ padding-block:var(--section-y); }
   section.alt{ background:var(--bg-alt); }
@@ -192,6 +209,11 @@
 <main id="content">
 
   <section class="hero">
+    <div class="hero-deco" aria-hidden="true">
+      <div class="hero-light"></div>
+      <span class="hero-frame-corner f-tl"></span>
+      <span class="hero-frame-corner f-br"></span>
+    </div>
     <div class="container">
       <p class="eyebrow">Video production &amp; photography</p>
       <h1>Real people. Real stories.</h1>
@@ -287,6 +309,9 @@
   <section id="contact" class="section-border-top">
     <div class="container contact-band">
       <h2>What would you like people to see?</h2>
+      <svg class="trace-accent" viewBox="0 0 90 24" aria-hidden="true" focusable="false">
+        <path d="M3,15 C18,4 34,21 50,11 C60,5 72,9 87,5" fill="none" stroke="#b3ac9e" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
       <p>Tell me a little about your business and what you have in mind. Whether you need a film, photographs, a website or help bringing it together, we can start with a conversation.</p>
       <div class="contact-actions">
         <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
