@@ -3,141 +3,317 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Drengsson — from story to screen</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<meta name="description" content="Drengsson — storytelling, production, campaigns, web." />
+<title>Drengsson | Video Production & Photography</title>
+<meta name="description" content="Video production and photography by Stefán Drengsson in Reykjavík. Real people and stories, with websites and marketing content to bring it together." />
+<link rel="canonical" href="https://www.drengsson.is/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Drengsson" />
+<meta property="og:title" content="Drengsson | Video Production & Photography" />
+<meta property="og:description" content="Video production and photography by Stefán Drengsson in Reykjavík. Real people and stories, with websites and marketing content to bring it together." />
+<meta property="og:url" content="https://www.drengsson.is/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://www.drengsson.is/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0b0a'/%3E%3Cg fill='none' stroke='%23f4f1ea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13,7 L7,7 L7,13'/%3E%3Cpath d='M19,7 L25,7 L25,13'/%3E%3Cpath d='M25,19 L25,25 L19,25'/%3E%3Cpath d='M13,25 L7,25 L7,19'/%3E%3C/g%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Stefán Drengsson",
+  "url": "https://www.drengsson.is/",
+  "email": "mailto:drengsson@gmail.com",
+  "jobTitle": "Filmmaker and photographer",
+  "worksFor": { "@type": "Organization", "name": "Drengsson" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Reykjavík", "addressCountry": "IS" }
+}
+</script>
+
 <style>
   :root{
     --bg:#0b0b0a;
+    --bg-alt:#121110;
     --fg:#f4f1ea;
-    --muted:#9a9488;
+    --muted:#b3ac9e;
+    --muted-dim:#8a8377;
     --line:#3a3630;
+    --line-soft:#221f1b;
+    --serif:'Fraunces', ui-serif, Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --container:1120px;
+    --gutter:clamp(20px, 5vw, 64px);
+    --section-y:clamp(64px, 10vw, 128px);
   }
-  *{box-sizing:border-box;}
-  html,body{
-    margin:0;
-    height:100%;
-    background:var(--bg);
-    color:var(--fg);
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ transition-duration:.001ms !important; animation-duration:.001ms !important; scroll-behavior:auto !important; }
   }
-  body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Inter', -apple-system, sans-serif;
-    padding:24px;
-  }
-  .stage{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:28px;
-  }
-  .mark{
-    position:relative;
-    width:96px;
-    height:96px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .mark::before,
-  .mark::after,
-  .mark .c3,
-  .mark .c4{
-    content:"";
-    position:absolute;
-    width:20px;
-    height:20px;
-    border-color:var(--fg);
-    border-style:solid;
-    opacity:.85;
-  }
-  .mark::before{ /* top-left */
-    top:0; left:0;
-    border-width:1.5px 0 0 1.5px;
-  }
-  .mark::after{ /* bottom-right */
-    bottom:0; right:0;
-    border-width:0 1.5px 1.5px 0;
-  }
-  .mark .c3{ /* top-right */
-    top:0; right:0;
-    border-width:1.5px 1.5px 0 0;
-  }
-  .mark .c4{ /* bottom-left */
-    bottom:0; left:0;
-    border-width:0 0 1.5px 1.5px;
-  }
-  .mark span{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:40px;
-    line-height:1;
-    transform:translateY(-2px);
-  }
-  h1{
-    font-family:'Fraunces', serif;
-    font-optical-sizing:auto;
-    font-weight:400;
-    font-size:clamp(2.2rem, 6vw, 3.4rem);
-    letter-spacing:0.02em;
-    margin:0;
-  }
-  .tagline{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:1.05rem;
-    color:var(--muted);
-    margin:0;
-  }
-  .services{
-    font-size:0.72rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--muted);
-    margin:6px 0 0;
-  }
-  .divider{
-    width:36px;
-    height:1px;
-    background:var(--line);
-    margin:4px 0;
-  }
-  .contact{
-    font-size:0.85rem;
-    color:var(--muted);
-  }
-  .contact a{
-    color:var(--fg);
-    text-decoration:none;
-    border-bottom:1px solid var(--line);
-    padding-bottom:1px;
-  }
-  .contact a:hover{
-    border-color:var(--fg);
-  }
+  body{ margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  a{ color:inherit; }
+  h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.1; margin:0; }
+  p{ margin:0; }
+  .container{ max-width:var(--container); margin-inline:auto; padding-inline:var(--gutter); }
+  .skip-link{ position:absolute; left:12px; top:-48px; background:var(--fg); color:var(--bg); padding:10px 16px; border-radius:4px; font-size:.9rem; text-decoration:none; z-index:100; transition:top .15s ease; }
+  .skip-link:focus{ top:12px; }
+  :focus-visible{ outline:2px solid var(--fg); outline-offset:3px; border-radius:2px; }
+
+  .site-header{ position:sticky; top:0; z-index:50; background:rgba(11,11,10,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line-soft); }
+  .site-header .container{ display:flex; align-items:center; justify-content:space-between; padding-block:16px; }
+  .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--fg); }
+  .brand-mark{ position:relative; width:30px; height:30px; flex:none; }
+  .brand-mark span{ position:absolute; width:9px; height:9px; border-color:var(--fg); border-style:solid; }
+  .brand-mark .c1{ top:0; left:0; border-width:1.5px 0 0 1.5px; }
+  .brand-mark .c2{ top:0; right:0; border-width:1.5px 1.5px 0 0; }
+  .brand-mark .c3{ bottom:0; right:0; border-width:0 1.5px 1.5px 0; }
+  .brand-mark .c4{ bottom:0; left:0; border-width:0 0 1.5px 1.5px; }
+  .brand-name{ font-family:var(--serif); font-size:1.15rem; }
+  .nav-desktop{ display:none; align-items:center; gap:32px; }
+  .nav-desktop a{ text-decoration:none; font-size:.92rem; color:var(--muted); border-bottom:1px solid transparent; padding-block:4px; transition:color .15s ease, border-color .15s ease; }
+  .nav-desktop a:hover,.nav-desktop a:focus-visible{ color:var(--fg); border-color:var(--line); }
+  .nav-actions{ display:flex; align-items:center; gap:16px; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:.92rem; font-weight:500; text-decoration:none; border-radius:999px; padding:11px 22px; border:1px solid transparent; cursor:pointer; transition:background-color .15s ease, border-color .15s ease, transform .1s ease; white-space:nowrap; }
+  .btn:active{ transform:scale(.98); }
+  .btn-primary{ background:var(--fg); color:var(--bg); }
+  .btn-primary:hover,.btn-primary:focus-visible{ background:#fff; }
+  .btn-outline{ background:transparent; color:var(--fg); border-color:var(--line); }
+  .btn-outline:hover,.btn-outline:focus-visible{ border-color:var(--fg); }
+  .btn-sm{ padding:8px 16px; font-size:.85rem; }
+  .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; background:transparent; border:1px solid var(--line); border-radius:8px; color:var(--fg); cursor:pointer; }
+  .nav-toggle svg{ width:18px; height:18px; }
+  .nav-mobile{ display:none; flex-direction:column; border-bottom:1px solid var(--line-soft); background:var(--bg); }
+  .nav-mobile.is-open{ display:flex; }
+  .nav-mobile a{ text-decoration:none; color:var(--fg); padding:14px var(--gutter); border-top:1px solid var(--line-soft); font-size:.98rem; }
+  .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
+  @media (min-width:860px){ .nav-desktop{ display:flex; } .nav-toggle{ display:none; } .nav-mobile{ display:none !important; } }
+
+  .hero{ padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); border-bottom:1px solid var(--line-soft); }
+  .eyebrow{ font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
+  .hero h1{ font-size:clamp(2.4rem, 6.4vw, 4.6rem); max-width:16ch; }
+  .hero-intro{ margin-top:24px; max-width:46ch; font-size:clamp(1.02rem, 1.6vw, 1.18rem); color:var(--muted); }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:40px; }
+
+  section{ padding-block:var(--section-y); }
+  section.alt{ background:var(--bg-alt); }
+  .section-border-top{ border-top:1px solid var(--line-soft); }
+  .section-head{ max-width:60ch; margin-bottom:clamp(36px, 6vw, 56px); }
+  .section-head h2{ font-size:clamp(1.8rem, 3.6vw, 2.6rem); }
+  .section-head .lede{ margin-top:16px; color:var(--muted); font-size:1.05rem; max-width:52ch; }
+
+  .approach-body{ max-width:62ch; font-size:clamp(1.05rem, 1.8vw, 1.25rem); line-height:1.65; }
+
+  .service-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); }
+  .service-card{ background:var(--bg); padding:clamp(28px, 4vw, 44px); display:flex; flex-direction:column; gap:14px; }
+  .service-card h3{ font-size:1.5rem; font-weight:500; }
+  .service-card p{ color:var(--muted); font-size:1.02rem; max-width:52ch; }
+  @media (min-width:720px){ .service-grid{ grid-template-columns:repeat(2, 1fr); } }
+
+  .support-head{ margin-top:clamp(48px, 7vw, 72px); margin-bottom:24px; font-size:1.15rem; font-family:var(--serif); }
+  .support-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
+  .support-card{ border-top:1px solid var(--line); padding-top:18px; }
+  .support-card h4{ font-family:var(--sans); font-size:1rem; font-weight:600; margin-bottom:8px; }
+  .support-card p{ color:var(--muted); font-size:.96rem; }
+  @media (min-width:720px){ .support-grid{ grid-template-columns:repeat(2, 1fr); gap:40px; } }
+  .services-closing{ margin-top:36px; color:var(--muted-dim); font-size:.95rem; max-width:60ch; }
+
+  .about-grid{ display:grid; grid-template-columns:1fr; gap:36px; align-items:start; }
+  .about-portrait{ aspect-ratio:4/5; border-radius:12px; border:1px solid var(--line); background:linear-gradient(160deg, var(--bg-alt), var(--bg)); display:flex; align-items:center; justify-content:center; }
+  .about-portrait .brand-mark{ width:64px; height:64px; opacity:.5; }
+  .about-portrait .brand-mark span{ width:18px; height:18px; }
+  .about-copy h2{ font-size:clamp(1.8rem, 3.6vw, 2.4rem); margin-bottom:20px; }
+  .about-copy p{ color:var(--muted); font-size:1.05rem; max-width:56ch; }
+  .about-copy p + p{ margin-top:16px; }
+  .about-note{ margin-top:24px; font-size:.92rem; color:var(--muted-dim); }
+  @media (min-width:780px){ .about-grid{ grid-template-columns:.8fr 1.2fr; gap:56px; } }
+
+  .process-list{ display:grid; grid-template-columns:1fr; gap:32px; }
+  .process-step{ display:flex; gap:20px; }
+  .process-num{ font-family:var(--serif); font-size:1.4rem; color:var(--muted-dim); flex:none; width:2.2ch; }
+  .process-step h3{ font-size:1.1rem; font-weight:500; margin-bottom:8px; }
+  .process-step p{ color:var(--muted); font-size:.96rem; max-width:46ch; }
+  @media (min-width:860px){ .process-list{ grid-template-columns:repeat(3, 1fr); gap:40px; } }
+
+  .contact-band{ text-align:left; }
+  .contact-band h2{ font-size:clamp(1.9rem, 4vw, 2.8rem); max-width:20ch; }
+  .contact-band p{ margin-top:18px; color:var(--muted); font-size:1.08rem; max-width:52ch; }
+  .contact-actions{ margin-top:32px; display:flex; flex-wrap:wrap; align-items:center; gap:20px; }
+  .contact-email{ font-size:.98rem; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
+  .contact-email:hover,.contact-email:focus-visible{ color:var(--fg); border-color:var(--fg); }
+
+  .site-footer{ border-top:1px solid var(--line-soft); padding-block:36px; }
+  .site-footer .container{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; font-size:.88rem; color:var(--muted-dim); }
+  .site-footer a{ color:var(--muted-dim); text-decoration:none; }
+  .site-footer a:hover,.site-footer a:focus-visible{ color:var(--fg); }
 </style>
 </head>
 <body>
-  <div class="stage">
-    <div class="mark">
-      <span>D</span>
-      <div class="c3"></div>
-      <div class="c4"></div>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span></span>
+      <span class="brand-name">Drengsson</span>
+    </a>
+    <nav class="nav-desktop" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-outline btn-sm" href="mailto:drengsson@gmail.com">Let's talk</a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
+      </button>
     </div>
-    <div>
-      <h1>Drengsson</h1>
-      <p class="tagline">from story to screen</p>
-    </div>
-    <p class="services">Storytelling &nbsp;·&nbsp; Production &nbsp;·&nbsp; Campaigns &nbsp;·&nbsp; Web</p>
-    <div class="divider"></div>
-    <p class="contact">Site in progress — reach me at <a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a></p>
   </div>
+  <nav class="nav-mobile" id="mobile-menu" data-nav-mobile aria-label="Mobile menu">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <div class="nav-mobile-actions">
+      <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
+    </div>
+  </nav>
+</header>
+
+<main id="content">
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Video production &amp; photography</p>
+      <h1>Real people. Real stories.</h1>
+      <p class="hero-intro">I'm Stefán Drengsson, a filmmaker and photographer. I help businesses show who they are through the people, work and moments that make them worth knowing.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#services">What I do</a>
+        <a class="btn btn-outline" href="#contact">Let's talk</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <h2>There's a story in what you actually do.</h2>
+      </div>
+      <p class="approach-body">AI can generate an image. I'm interested in what happens when you show up: the conversation, the craft, the unexpected moment. I meet the people, ask questions and capture the details that make your business its own.</p>
+      <p class="approach-body" style="margin-top:16px;">The result is video and photography rooted in real experience, shaped into a story people can understand and connect with.</p>
+    </div>
+  </section>
+
+  <section id="services" class="alt section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <h2>What we can create together</h2>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Video production</h3>
+          <p>Films that bring people closer to your business. Interviews, company stories, customer experiences and short videos for your website and social channels. I develop the story, film it and shape the final edit around what you want people to understand.</p>
+        </div>
+        <div class="service-card">
+          <h3>Photography</h3>
+          <p>People, places and work, photographed with an eye for the moments that matter. Portraits, workplaces and images of your business in action, for your website, communication and social media. Available as a standalone assignment or alongside a film.</p>
+        </div>
+      </div>
+
+      <h3 class="support-head">Bring it all together</h3>
+      <div class="support-grid">
+        <div class="support-card">
+          <h4>Websites</h4>
+          <p>Clear, considered websites that give your business and its content a strong home, with an easy next step for visitors.</p>
+        </div>
+        <div class="support-card">
+          <h4>Marketing &amp; social media</h4>
+          <p>Help with the message, the content and how to use it. From campaign ideas and copy to short videos, photographs and posts adapted for your channels.</p>
+        </div>
+      </div>
+
+      <p class="services-closing">We can work on a single project or build a regular flow of content together. You can also commission a website or marketing support on its own.</p>
+    </div>
+  </section>
+
+  <section id="about" class="section-border-top">
+    <div class="container about-grid">
+      <div class="about-portrait">
+        <span class="brand-mark" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span></span>
+      </div>
+      <div class="about-copy">
+        <h2>I'm Stefán Drengsson.</h2>
+        <p>I'm a filmmaker, photographer and journalist based in Reykjavík. My background spans investigative journalism, documentary storytelling and communication for businesses.</p>
+        <p>What draws me to this work is meeting people and discovering what matters to them. I bring that curiosity to every assignment, whether it's a film, a portrait or a website that needs to express who you are.</p>
+        <p>You work directly with me, from the first conversation to the finished result.</p>
+        <p class="about-note">BA in Film and Media · MA in Journalism</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <h2>From the first conversation to the finished work</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-step">
+          <span class="process-num" aria-hidden="true">01</span>
+          <div><h3>Find the focus.</h3><p>We discuss what you want to communicate, who it is for and where it will appear.</p></div>
+        </div>
+        <div class="process-step">
+          <span class="process-num" aria-hidden="true">02</span>
+          <div><h3>Create the material.</h3><p>I plan and produce the film, photographs or website around that purpose.</p></div>
+        </div>
+        <div class="process-step">
+          <span class="process-num" aria-hidden="true">03</span>
+          <div><h3>Make it ready to use.</h3><p>We review the work and prepare the agreed versions for the places you need them.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section-border-top">
+    <div class="container contact-band">
+      <h2>What would you like people to see?</h2>
+      <p>Tell me a little about your business and what you have in mind. Whether you need a film, photographs, a website or help bringing it together, we can start with a conversation.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
+        <a class="contact-email" href="mailto:drengsson@gmail.com">drengsson@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>© <span id="year">2026</span> Drengsson · Stefán Drengsson</span>
+    <a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+(function(){
+  var toggle = document.querySelector('[data-nav-toggle]');
+  var menu = document.querySelector('[data-nav-mobile]');
+  if(!toggle || !menu) return;
+  toggle.addEventListener('click', function(){
+    var open = menu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  menu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+</script>
 </body>
 </html>
