@@ -98,28 +98,55 @@
   .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
   @media (min-width:860px){ .nav-desktop{ display:flex; } .nav-toggle{ display:none; } .nav-mobile{ display:none !important; } }
 
-  .hero{ position:relative; overflow:hidden; padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); border-bottom:1px solid var(--line-soft); }
+  .hero{ position:relative; overflow:hidden; padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); }
   .hero .container{ position:relative; z-index:1; }
   .eyebrow{ font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
   .hero h1{ font-size:clamp(2.4rem, 6.4vw, 4.6rem); max-width:16ch; }
   .hero-intro{ margin-top:24px; max-width:46ch; font-size:clamp(1.02rem, 1.6vw, 1.18rem); color:var(--muted); }
   .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:40px; }
 
-  /* Decorative graphic system: Frame + Light (hero), Trace (contact). Purely
-     ornamental — aria-hidden, no pointer events, never carries content. */
+  /* Site-wide atmosphere: a faint grain and vignette tie every section
+     together, so the mood-board's tone reads across the whole page, not
+     just the three discrete accent placements below. Purely ornamental —
+     aria-hidden, fixed, no pointer events, static. */
+  .grain-overlay{ position:fixed; inset:0; z-index:200; pointer-events:none; opacity:.05; mix-blend-mode:overlay; background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMTYwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMicgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDEgIDAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwLjUgMCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNuKScvPjwvc3ZnPg=="); background-repeat:repeat; }
+  .vignette-overlay{ position:fixed; inset:0; z-index:199; pointer-events:none; background:radial-gradient(circle at 50% 22%, transparent 45%, rgba(0,0,0,.3) 100%); }
+
+  /* Decorative graphic system: Frame + Light (hero, about portrait), Trace
+     (contact). Purely ornamental — aria-hidden, no pointer events, never
+     carries content. */
   .hero-deco{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-  .hero-light{ position:absolute; top:-15%; right:-8%; width:52%; max-width:560px; aspect-ratio:1; background:radial-gradient(circle at 55% 45%, rgba(244,241,234,.16), rgba(244,241,234,.05) 42%, transparent 68%); filter:blur(30px); }
-  .hero-frame-corner{ position:absolute; width:clamp(22px, 4vw, 40px); height:clamp(22px, 4vw, 40px); border-color:rgba(244,241,234,.4); border-style:solid; }
-  .hero-frame-corner.f-tl{ top:clamp(20px, 6vw, 64px); left:clamp(0px, 2vw, 24px); border-width:1px 0 0 1px; }
-  .hero-frame-corner.f-br{ bottom:clamp(16px, 5vw, 48px); right:clamp(0px, 2vw, 24px); border-width:0 1px 1px 0; }
+  .hero-light{ position:absolute; top:-26%; right:-14%; width:64%; max-width:680px; aspect-ratio:1; background:radial-gradient(circle at 58% 42%, rgba(249,227,182,.32), rgba(247,224,180,.1) 40%, transparent 68%); filter:blur(30px); }
+  .hero-light-beam{ position:absolute; top:-10%; right:6%; width:46%; max-width:420px; height:120%; background:linear-gradient(200deg, rgba(249,227,182,.14), transparent 62%); filter:blur(18px); transform:rotate(-8deg); }
+  .hero-light-low{ position:absolute; bottom:-32%; left:-12%; width:40%; max-width:380px; aspect-ratio:1; background:radial-gradient(circle at 50% 50%, rgba(244,241,234,.07), transparent 72%); filter:blur(38px); }
+  .hero-frame-corner{ position:absolute; width:clamp(26px, 4.5vw, 46px); height:clamp(26px, 4.5vw, 46px); border-color:rgba(244,241,234,.55); border-style:solid; }
+  .hero-frame-corner.f-tl{ top:clamp(20px, 6vw, 64px); left:clamp(0px, 2vw, 24px); border-width:1.5px 0 0 1.5px; }
+  .hero-frame-corner.f-br{ bottom:clamp(16px, 5vw, 48px); right:clamp(0px, 2vw, 24px); border-width:0 1.5px 1.5px 0; }
+  .frame-tick{ position:absolute; width:9px; height:9px; top:clamp(52px, 9vw, 96px); left:clamp(30px, 6vw, 54px); }
+  .frame-tick::before,.frame-tick::after{ content:""; position:absolute; background:rgba(244,241,234,.5); }
+  .frame-tick::before{ top:50%; left:0; right:0; height:1px; transform:translateY(-50%); }
+  .frame-tick::after{ left:50%; top:0; bottom:0; width:1px; transform:translateX(-50%); }
   @media (max-width:640px){
-    .hero-frame-corner{ width:18px; height:18px; }
+    .hero-frame-corner{ width:20px; height:20px; }
     .hero-frame-corner.f-tl{ top:12px; left:0; }
     .hero-frame-corner.f-br{ bottom:12px; right:0; }
-    .hero-light{ width:75%; top:-18%; right:-18%; }
+    .hero-light{ width:80%; top:-24%; right:-22%; }
+    .hero-light-beam{ display:none; }
+    .hero-light-low{ width:55%; bottom:-28%; left:-18%; }
+    .frame-tick{ display:none; }
   }
-  .trace-accent{ display:block; width:84px; height:32px; margin:10px 0 0 -4px; opacity:.55; pointer-events:none; }
+  .trace-accent{ display:block; width:132px; height:46px; margin:14px 0 4px -4px; opacity:.85; pointer-events:none; }
   @media (max-width:640px){ .trace-accent{ display:none; } }
+
+  .portrait-frame{ position:relative; }
+  .portrait-frame::before,.portrait-frame::after{ content:""; position:absolute; width:34px; height:34px; border-color:rgba(244,241,234,.55); border-style:solid; pointer-events:none; }
+  .portrait-frame::before{ top:-14px; left:-14px; border-width:1.5px 0 0 1.5px; }
+  .portrait-frame::after{ bottom:-14px; right:-14px; border-width:0 1.5px 1.5px 0; }
+  @media (max-width:640px){
+    .portrait-frame::before,.portrait-frame::after{ width:20px; height:20px; }
+    .portrait-frame::before{ top:-10px; left:-10px; }
+    .portrait-frame::after{ bottom:-10px; right:-10px; }
+  }
 
   section{ padding-block:var(--section-y); }
   section.alt{ background:var(--bg-alt); }
@@ -128,6 +155,9 @@
   .section-head h2{ font-size:clamp(1.8rem, 3.6vw, 2.6rem); }
   .section-head .lede{ margin-top:16px; color:var(--muted); font-size:1.05rem; max-width:52ch; }
 
+  .approach-grid{ display:grid; grid-template-columns:1fr; gap:24px; }
+  .approach-grid .section-head{ margin-bottom:0; }
+  @media (min-width:820px){ .approach-grid{ grid-template-columns:.9fr 1.1fr; gap:56px; align-items:start; } }
   .approach-body{ max-width:62ch; font-size:clamp(1.05rem, 1.8vw, 1.25rem); line-height:1.65; }
 
   .service-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); }
@@ -153,9 +183,9 @@
   .about-note{ margin-top:24px; font-size:.92rem; color:var(--muted-dim); }
   @media (min-width:780px){ .about-grid{ grid-template-columns:.8fr 1.2fr; gap:56px; } }
 
-  .process-list{ display:grid; grid-template-columns:1fr; gap:32px; }
-  .process-step{ display:flex; gap:20px; }
-  .process-num{ font-family:var(--serif); font-size:1.4rem; color:var(--muted-dim); flex:none; width:2.2ch; }
+  .process-list{ display:grid; grid-template-columns:1fr; gap:40px; }
+  .process-step{ display:flex; flex-direction:column; gap:6px; }
+  .process-num{ font-family:var(--serif); font-size:clamp(2.6rem, 5vw, 3.4rem); line-height:1; color:rgba(244,241,234,.16); -webkit-text-stroke:1px rgba(244,241,234,.45); margin-bottom:6px; }
   .process-step h3{ font-size:1.1rem; font-weight:500; margin-bottom:8px; }
   .process-step p{ color:var(--muted); font-size:.96rem; max-width:46ch; }
   @media (min-width:860px){ .process-list{ grid-template-columns:repeat(3, 1fr); gap:40px; } }
@@ -174,6 +204,8 @@
 </style>
 </head>
 <body>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="vignette-overlay" aria-hidden="true"></div>
 <a class="skip-link" href="#content">Skip to content</a>
 
 <header class="site-header">
@@ -211,8 +243,11 @@
   <section class="hero">
     <div class="hero-deco" aria-hidden="true">
       <div class="hero-light"></div>
+      <div class="hero-light-beam"></div>
+      <div class="hero-light-low"></div>
       <span class="hero-frame-corner f-tl"></span>
       <span class="hero-frame-corner f-br"></span>
+      <span class="frame-tick"></span>
     </div>
     <div class="container">
       <p class="eyebrow">Video production &amp; photography</p>
@@ -226,12 +261,14 @@
   </section>
 
   <section class="section-border-top">
-    <div class="container">
+    <div class="container approach-grid">
       <div class="section-head">
         <h2>There's a story in what you actually do.</h2>
       </div>
-      <p class="approach-body">AI can generate an image. I'm interested in what happens when you show up: the conversation, the craft, the unexpected moment. I meet the people, ask questions and capture the details that make your business its own.</p>
-      <p class="approach-body" style="margin-top:16px;">The result is video and photography rooted in real experience, shaped into a story people can understand and connect with.</p>
+      <div>
+        <p class="approach-body">AI can generate an image. I'm interested in what happens when you show up: the conversation, the craft, the unexpected moment. I meet the people, ask questions and capture the details that make your business its own.</p>
+        <p class="approach-body" style="margin-top:16px;">The result is video and photography rooted in real experience, shaped into a story people can understand and connect with.</p>
+      </div>
     </div>
   </section>
 
@@ -270,8 +307,10 @@
 
   <section id="about" class="section-border-top">
     <div class="container about-grid">
-      <div class="about-portrait">
-        <img src="/portrait.jpg" alt="Portrait of Stefán Drengsson" loading="lazy" />
+      <div class="portrait-frame">
+        <div class="about-portrait">
+          <img src="/portrait.jpg" alt="Portrait of Stefán Drengsson" loading="lazy" />
+        </div>
       </div>
       <div class="about-copy">
         <h2>I'm Stefán Drengsson.</h2>
@@ -292,15 +331,18 @@
       <div class="process-list">
         <div class="process-step">
           <span class="process-num" aria-hidden="true">01</span>
-          <div><h3>Find the focus.</h3><p>We discuss what you want to communicate, who it is for and where it will appear.</p></div>
+          <h3>Find the focus.</h3>
+          <p>We discuss what you want to communicate, who it is for and where it will appear.</p>
         </div>
         <div class="process-step">
           <span class="process-num" aria-hidden="true">02</span>
-          <div><h3>Create the material.</h3><p>I plan and produce the film, photographs or website around that purpose.</p></div>
+          <h3>Create the material.</h3>
+          <p>I plan and produce the film, photographs or website around that purpose.</p>
         </div>
         <div class="process-step">
           <span class="process-num" aria-hidden="true">03</span>
-          <div><h3>Make it ready to use.</h3><p>We review the work and prepare the agreed versions for the places you need them.</p></div>
+          <h3>Make it ready to use.</h3>
+          <p>We review the work and prepare the agreed versions for the places you need them.</p>
         </div>
       </div>
     </div>
@@ -309,8 +351,8 @@
   <section id="contact" class="section-border-top">
     <div class="container contact-band">
       <h2>What would you like people to see?</h2>
-      <svg class="trace-accent" viewBox="0 0 90 24" aria-hidden="true" focusable="false">
-        <path d="M3,15 C18,4 34,21 50,11 C60,5 72,9 87,5" fill="none" stroke="#b3ac9e" stroke-width="1.6" stroke-linecap="round"/>
+      <svg class="trace-accent" viewBox="0 0 130 46" aria-hidden="true" focusable="false">
+        <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <p>Tell me a little about your business and what you have in mind. Whether you need a film, photographs, a website or help bringing it together, we can start with a conversation.</p>
       <div class="contact-actions">
