@@ -123,9 +123,8 @@
   .services-closing{ margin-top:36px; color:var(--muted-dim); font-size:.95rem; max-width:60ch; }
 
   .about-grid{ display:grid; grid-template-columns:1fr; gap:36px; align-items:start; }
-  .about-portrait{ aspect-ratio:4/5; border-radius:12px; border:1px solid var(--line); background:linear-gradient(160deg, var(--bg-alt), var(--bg)); display:flex; align-items:center; justify-content:center; }
-  .about-portrait .brand-mark{ width:64px; height:64px; opacity:.5; }
-  .about-portrait .brand-mark span{ width:18px; height:18px; }
+  .about-portrait{ aspect-ratio:4/5; border-radius:12px; border:1px solid var(--line); overflow:hidden; background:linear-gradient(160deg, var(--bg-alt), var(--bg)); }
+  .about-portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
   .about-copy h2{ font-size:clamp(1.8rem, 3.6vw, 2.4rem); margin-bottom:20px; }
   .about-copy p{ color:var(--muted); font-size:1.05rem; max-width:56ch; }
   .about-copy p + p{ margin-top:16px; }
@@ -243,11 +242,12 @@
   <section id="about" class="section-border-top">
     <div class="container about-grid">
       <div class="about-portrait">
-        <span class="brand-mark" aria-hidden="true"><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c4"></span></span>
+        <img src="/portrait.jpg" alt="Portrait of Stefán Drengsson" loading="lazy" />
       </div>
       <div class="about-copy">
         <h2>I'm Stefán Drengsson.</h2>
         <p>I'm a filmmaker, photographer and journalist based in Reykjavík. My background spans investigative journalism, documentary storytelling and communication for businesses.</p>
+        <p>I've worked on RÚV's investigative programme Kveikur and in corporate communications at Alvotech. That experience has taught me to find the story, ask useful questions and turn complex subjects into something people can understand.</p>
         <p>What draws me to this work is meeting people and discovering what matters to them. I bring that curiosity to every assignment, whether it's a film, a portrait or a website that needs to express who you are.</p>
         <p>You work directly with me, from the first conversation to the finished result.</p>
         <p class="about-note">BA in Film and Media · MA in Journalism</p>
