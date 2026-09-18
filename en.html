@@ -95,8 +95,13 @@
   .nav-toggle svg{ width:18px; height:18px; }
   .nav-mobile{ display:none; flex-direction:column; border-bottom:1px solid var(--line-soft); background:var(--bg); }
   .nav-mobile.is-open{ display:flex; }
-  .nav-mobile a{ text-decoration:none; color:var(--fg); padding:14px var(--gutter); border-top:1px solid var(--line-soft); font-size:.98rem; }
+  /* Direct-child combinator only — .nav-mobile-actions' .btn links are
+     grandchildren, so they keep their own .btn-primary/.btn-outline colors
+     instead of being overridden to var(--fg) (which made the cream-on-cream
+     primary button's text unreadable). */
+  .nav-mobile > a{ text-decoration:none; color:var(--fg); padding:14px var(--gutter); border-top:1px solid var(--line-soft); font-size:.98rem; }
   .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
+  @media (max-width:859px){ .site-header .nav-actions .btn-outline{ display:none; } }
   @media (min-width:860px){ .nav-desktop{ display:flex; } .nav-toggle{ display:none; } .nav-mobile{ display:none !important; } }
 
   .hero{ position:relative; overflow:hidden; overflow:clip; padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); }
