@@ -59,7 +59,8 @@
     html{ scroll-behavior:auto; }
     *,*::before,*::after{ transition-duration:.001ms !important; animation-duration:.001ms !important; scroll-behavior:auto !important; }
   }
-  body{ margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  html{ overflow-x:hidden; overflow-x:clip; }
+  body{ margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; }
   a{ color:inherit; }
   h1,h2,h3{ font-family:var(--serif); font-weight:400; line-height:1.1; margin:0; }
   p{ margin:0; }
@@ -99,7 +100,7 @@
   .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
   @media (min-width:860px){ .nav-desktop{ display:flex; } .nav-toggle{ display:none; } .nav-mobile{ display:none !important; } }
 
-  .hero{ position:relative; overflow:hidden; padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); }
+  .hero{ position:relative; overflow:hidden; overflow:clip; padding-block:clamp(72px, 14vw, 160px) clamp(56px, 10vw, 112px); }
   .hero .container{ position:relative; z-index:1; }
   .eyebrow{ font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
   .hero h1{ font-size:clamp(2.4rem, 6.4vw, 4.6rem); max-width:16ch; }
@@ -117,9 +118,15 @@
      (contact). Purely ornamental — aria-hidden, no pointer events, never
      carries content. */
   .hero-deco{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-  .hero-light{ position:absolute; top:-26%; right:-14%; width:64%; max-width:680px; aspect-ratio:1; background:radial-gradient(circle at 58% 42%, rgba(249,227,182,.32), rgba(247,224,180,.1) 40%, transparent 68%); filter:blur(30px); }
-  .hero-light-beam{ position:absolute; top:-10%; right:6%; width:46%; max-width:420px; height:120%; background:linear-gradient(200deg, rgba(249,227,182,.14), transparent 62%); filter:blur(18px); transform:rotate(-8deg); }
-  .hero-light-low{ position:absolute; bottom:-32%; left:-12%; width:40%; max-width:380px; aspect-ratio:1; background:radial-gradient(circle at 50% 50%, rgba(244,241,234,.07), transparent 72%); filter:blur(38px); }
+  /* Positioned with top:0/right:0 etc (never negative) plus a transform to
+     bleed past the hero's edge — a negative inset % here would genuinely
+     extend the element's layout box beyond the viewport, which some mobile
+     browsers use to widen the whole page's layout viewport even though
+     .hero's overflow:hidden clips it visually. transform doesn't affect
+     layout/scrollWidth, only paint, so it can't trigger that. */
+  .hero-light{ position:absolute; top:0; right:0; width:64%; max-width:680px; aspect-ratio:1; background:radial-gradient(circle at 58% 42%, rgba(249,227,182,.32), rgba(247,224,180,.1) 40%, transparent 68%); filter:blur(30px); transform:translate(30%, -34%); }
+  .hero-light-beam{ position:absolute; top:0; right:0; width:46%; max-width:420px; height:120%; background:linear-gradient(200deg, rgba(249,227,182,.14), transparent 62%); filter:blur(18px); transform:translate(22%, -8%) rotate(-8deg); }
+  .hero-light-low{ position:absolute; bottom:0; left:0; width:40%; max-width:380px; aspect-ratio:1; background:radial-gradient(circle at 50% 50%, rgba(244,241,234,.07), transparent 72%); filter:blur(38px); transform:translate(-28%, 34%); }
   .hero-frame-corner{ position:absolute; width:clamp(26px, 4.5vw, 46px); height:clamp(26px, 4.5vw, 46px); border-color:rgba(244,241,234,.55); border-style:solid; }
   .hero-frame-corner.f-tl{ top:clamp(20px, 6vw, 64px); left:clamp(0px, 2vw, 24px); border-width:1.5px 0 0 1.5px; }
   .hero-frame-corner.f-br{ bottom:clamp(16px, 5vw, 48px); right:clamp(0px, 2vw, 24px); border-width:0 1.5px 1.5px 0; }
@@ -131,9 +138,9 @@
     .hero-frame-corner{ width:20px; height:20px; }
     .hero-frame-corner.f-tl{ top:12px; left:0; }
     .hero-frame-corner.f-br{ bottom:12px; right:0; }
-    .hero-light{ width:80%; top:-24%; right:-22%; }
+    .hero-light{ width:80%; transform:translate(28%, -28%); }
     .hero-light-beam{ display:none; }
-    .hero-light-low{ width:55%; bottom:-28%; left:-18%; }
+    .hero-light-low{ width:55%; transform:translate(-26%, 28%); }
     .frame-tick{ display:none; }
   }
   .trace-accent{ display:block; width:132px; height:46px; margin:14px 0 4px -4px; opacity:.85; pointer-events:none; }
