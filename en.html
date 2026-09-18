@@ -101,6 +101,7 @@
      primary button's text unreadable). */
   .nav-mobile > a{ text-decoration:none; color:var(--fg); padding:14px var(--gutter); border-top:1px solid var(--line-soft); font-size:.98rem; }
   .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
+  .nav-mobile-actions .btn{ flex:1; justify-content:center; }
   @media (max-width:859px){ .site-header .nav-actions .btn-outline{ display:none; } }
   @media (min-width:860px){ .nav-desktop{ display:flex; } .nav-toggle{ display:none; } .nav-mobile{ display:none !important; } }
 
@@ -209,6 +210,21 @@
   .contact-email{ font-size:.98rem; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
   .contact-email:hover,.contact-email:focus-visible{ color:var(--fg); border-color:var(--fg); }
 
+  .mobile-cta-bar{ display:none; }
+  @media (max-width:859px){
+    body{ padding-bottom:calc(70px + env(safe-area-inset-bottom)); }
+    .mobile-cta-bar{
+      display:flex;
+      position:fixed; left:0; right:0; bottom:0; z-index:90;
+      padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom));
+      background:rgba(11,11,10,.92);
+      -webkit-backdrop-filter:blur(10px);
+      backdrop-filter:blur(10px);
+      border-top:1px solid var(--line-soft);
+    }
+    .mobile-cta-bar .btn{ flex:1; justify-content:center; }
+  }
+
   .site-footer{ border-top:1px solid var(--line-soft); padding-block:36px; }
   .site-footer .container{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; font-size:.88rem; color:var(--muted-dim); }
   .site-footer a{ color:var(--muted-dim); text-decoration:none; }
@@ -245,7 +261,6 @@
     <a href="#contact">Contact</a>
     <div class="nav-mobile-actions">
       <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
-      <a class="btn btn-outline" href="/" hreflang="is">IS</a>
     </div>
   </nav>
 </header>
@@ -382,6 +397,10 @@
     <span><a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a> · <a href="/" hreflang="is">Íslenska</a></span>
   </div>
 </footer>
+
+<div class="mobile-cta-bar">
+  <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
+</div>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
