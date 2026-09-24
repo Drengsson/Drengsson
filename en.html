@@ -92,8 +92,6 @@
     --muted-dim:#8a8377;
     --line:#3a3630;
     --line-soft:#221f1b;
-    --ok:#9fd8a8;
-    --err:#e8a2a2;
     --serif:'Fraunces', ui-serif, Georgia, serif;
     --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --container:1120px;
@@ -134,7 +132,6 @@
   .lang-switch:hover,.lang-switch:focus-visible{ color:var(--fg); border-color:var(--fg); }
   .btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:.92rem; font-weight:500; text-decoration:none; border-radius:999px; padding:11px 22px; border:1px solid transparent; cursor:pointer; transition:background-color .15s ease, border-color .15s ease, transform .1s ease; white-space:nowrap; }
   .btn:active{ transform:scale(.98); }
-  .btn[disabled]{ opacity:.6; cursor:not-allowed; }
   .btn-primary{ background:var(--fg); color:var(--bg); }
   .btn-primary:hover,.btn-primary:focus-visible{ background:#fff; }
   .btn-outline{ background:transparent; color:var(--fg); border-color:var(--line); }
@@ -238,21 +235,9 @@
   .contact-band{ text-align:left; }
   .contact-band h2{ font-size:clamp(1.9rem, 4vw, 2.8rem); max-width:20ch; }
   .contact-band p{ margin-top:18px; color:var(--muted); font-size:1.08rem; max-width:52ch; }
-  .contact-alt{ margin-top:28px; color:var(--muted); font-size:.98rem; }
-  .contact-email{ color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
+  .contact-actions{ margin-top:32px; display:flex; flex-wrap:wrap; align-items:center; gap:20px; }
+  .contact-email{ font-size:.98rem; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
   .contact-email:hover,.contact-email:focus-visible{ color:var(--fg); border-color:var(--fg); }
-
-  .contact-form{ margin-top:36px; max-width:480px; display:flex; flex-direction:column; gap:20px; }
-  .form-row{ display:flex; flex-direction:column; gap:8px; }
-  .form-row label{ font-size:.88rem; color:var(--muted); }
-  .form-row input,.form-row textarea{ font-family:var(--sans); font-size:1rem; color:var(--fg); background:var(--bg-alt); border:1px solid var(--line); border-radius:8px; padding:12px 14px; resize:vertical; }
-  .form-row input::placeholder,.form-row textarea::placeholder{ color:var(--muted-dim); }
-  .form-row input:focus-visible,.form-row textarea:focus-visible{ outline:2px solid var(--fg); outline-offset:2px; border-color:var(--fg); }
-  .form-honeypot{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
-  .form-actions{ display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
-  .form-status{ font-size:.92rem; min-height:1.3em; margin:0; }
-  .form-status[data-state="ok"]{ color:var(--ok); }
-  .form-status[data-state="error"]{ color:var(--err); }
 
   .mobile-cta-bar{ display:none; }
   @media (max-width:859px){
@@ -296,7 +281,7 @@
     </nav>
     <div class="nav-actions">
       <a class="lang-switch" href="/" hreflang="is">IS</a>
-      <a class="btn btn-outline btn-sm" href="#contact">Let's talk</a>
+      <a class="btn btn-outline btn-sm" href="mailto:drengsson@gmail.com">Let's talk</a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
       </button>
@@ -307,7 +292,7 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <div class="nav-mobile-actions">
-      <a class="btn btn-primary" href="#contact">Let's talk</a>
+      <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
     </div>
   </nav>
 </header>
@@ -329,7 +314,7 @@
       <p class="hero-intro">I'm Stefán Drengsson, a filmmaker and photographer. I help businesses show who they are through the people, work and moments that make them worth knowing.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#services">What I do</a>
-        <a class="btn btn-outline" href="#contact">Let's talk</a>
+        <a class="btn btn-outline" href="mailto:drengsson@gmail.com">Let's talk</a>
       </div>
     </div>
   </section>
@@ -429,31 +414,10 @@
         <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <p>Tell me a little about your business and what you have in mind. Whether you need a film, photographs, a website or help bringing it together, we can start with a conversation.</p>
-
-      <form id="contact-form" class="contact-form" novalidate>
-        <div class="form-row">
-          <label for="cf-name">Name</label>
-          <input type="text" id="cf-name" name="name" autocomplete="name" required maxlength="100" />
-        </div>
-        <div class="form-row">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" autocomplete="email" required maxlength="200" />
-        </div>
-        <div class="form-row">
-          <label for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" rows="5" required maxlength="5000"></textarea>
-        </div>
-        <div class="form-honeypot" aria-hidden="true">
-          <label for="cf-company">Company</label>
-          <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
-        </div>
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary" id="cf-submit">Send message</button>
-          <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
-        </div>
-      </form>
-
-      <p class="contact-alt">Or email me directly at <a class="contact-email" href="mailto:drengsson@gmail.com">drengsson@gmail.com</a>.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
+        <a class="contact-email" href="mailto:drengsson@gmail.com">drengsson@gmail.com</a>
+      </div>
     </div>
   </section>
 
@@ -473,7 +437,7 @@
 </footer>
 
 <div class="mobile-cta-bar">
-  <a class="btn btn-primary" href="#contact">Let's talk</a>
+  <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Let's talk</a>
 </div>
 
 <script>
@@ -490,55 +454,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
     link.addEventListener('click', function(){
       menu.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-})();
-(function(){
-  var form = document.getElementById('contact-form');
-  if(!form) return;
-  var status = document.getElementById('cf-status');
-  var submitBtn = document.getElementById('cf-submit');
-  var MSG = {
-    sending: 'Sending…',
-    ok: "Thanks! Your message has been sent — I'll get back to you as soon as I can.",
-    err: 'Something went wrong. Please try again, or email me directly at drengsson@gmail.com.',
-    invalid: 'Please check that your name, email and message are filled in correctly.'
-  };
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = form.name.value.trim();
-    var email = form.email.value.trim();
-    var message = form.message.value.trim();
-    var company = form.company.value;
-    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    if(!name || !message || !emailOk){
-      status.textContent = MSG.invalid;
-      status.setAttribute('data-state','error');
-      return;
-    }
-    submitBtn.disabled = true;
-    status.setAttribute('data-state','');
-    status.textContent = MSG.sending;
-    fetch('/api/contact', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ name:name, email:email, message:message, company:company, lang:'en' })
-    }).then(function(r){
-      return r.json().then(function(data){ return {ok:r.ok, data:data}; });
-    }).then(function(res){
-      if(res.ok && res.data && res.data.ok){
-        status.textContent = MSG.ok;
-        status.setAttribute('data-state','ok');
-        form.reset();
-      } else {
-        status.textContent = MSG.err;
-        status.setAttribute('data-state','error');
-      }
-    }).catch(function(){
-      status.textContent = MSG.err;
-      status.setAttribute('data-state','error');
-    }).finally(function(){
-      submitBtn.disabled = false;
     });
   });
 })();
