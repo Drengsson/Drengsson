@@ -18,7 +18,11 @@
 <meta property="og:locale" content="is_IS" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta property="og:image" content="https://www.drengsson.is/og-image.png" />
+<meta property="og:image:alt" content="Stefán Drengsson — kvikmyndagerðarmaður og ljósmyndari" />
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Drengsson | Myndbandagerð og ljósmyndun" />
+<meta name="twitter:description" content="Stefán Drengsson vinnur myndbönd og ljósmyndir fyrir fyrirtæki. Raunverulegt fólk og sögur, ásamt vefsíðugerð og efni fyrir samfélagsmiðla." />
+<meta name="twitter:image" content="https://www.drengsson.is/og-image.png" />
 
 <meta name="theme-color" content="#0b0b0a" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0b0a'/%3E%3Cg fill='none' stroke='%23f4f1ea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13,7 L7,7 L7,13'/%3E%3Cpath d='M19,7 L25,7 L25,13'/%3E%3Cpath d='M25,19 L25,25 L19,25'/%3E%3Cpath d='M13,25 L7,25 L7,19'/%3E%3C/g%3E%3C/svg%3E" />
@@ -32,13 +36,36 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Stefán Drengsson",
-  "url": "https://www.drengsson.is/",
-  "email": "mailto:drengsson@gmail.com",
-  "jobTitle": "Kvikmyndagerðarmaður og ljósmyndari",
-  "worksFor": { "@type": "Organization", "name": "Drengsson" },
-  "address": { "@type": "PostalAddress", "addressLocality": "Reykjavík", "addressCountry": "IS" }
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "name": "Drengsson",
+      "legalName": "Drengsson Pics ehf",
+      "url": "https://www.drengsson.is/",
+      "email": "mailto:drengsson@gmail.com",
+      "image": "https://www.drengsson.is/og-image.png",
+      "taxID": "5311092360",
+      "vatID": "IS103107",
+      "areaServed": { "@type": "Country", "name": "Iceland" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Reykjavík", "addressCountry": "IS" },
+      "founder": { "@type": "Person", "name": "Stefán Drengsson" },
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Myndbandagerð" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ljósmyndun" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vefsíðugerð" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Markaðsefni og samfélagsmiðlar" } }
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Stefán Drengsson",
+      "url": "https://www.drengsson.is/",
+      "email": "mailto:drengsson@gmail.com",
+      "jobTitle": "Kvikmyndagerðarmaður og ljósmyndari",
+      "worksFor": { "@type": "Organization", "name": "Drengsson" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Reykjavík", "addressCountry": "IS" }
+    }
+  ]
 }
 </script>
 
@@ -65,6 +92,8 @@
     --muted-dim:#8a8377;
     --line:#3a3630;
     --line-soft:#221f1b;
+    --ok:#9fd8a8;
+    --err:#e8a2a2;
     --serif:'Fraunces', ui-serif, Georgia, serif;
     --sans:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --container:1120px;
@@ -105,6 +134,7 @@
   .lang-switch:hover,.lang-switch:focus-visible{ color:var(--fg); border-color:var(--fg); }
   .btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--sans); font-size:.92rem; font-weight:500; text-decoration:none; border-radius:999px; padding:11px 22px; border:1px solid transparent; cursor:pointer; transition:background-color .15s ease, border-color .15s ease, transform .1s ease; white-space:nowrap; }
   .btn:active{ transform:scale(.98); }
+  .btn[disabled]{ opacity:.6; cursor:not-allowed; }
   .btn-primary{ background:var(--fg); color:var(--bg); }
   .btn-primary:hover,.btn-primary:focus-visible{ background:#fff; }
   .btn-outline{ background:transparent; color:var(--fg); border-color:var(--line); }
@@ -114,10 +144,6 @@
   .nav-toggle svg{ width:18px; height:18px; }
   .nav-mobile{ display:none; flex-direction:column; border-bottom:1px solid var(--line-soft); background:var(--bg); }
   .nav-mobile.is-open{ display:flex; }
-  /* Direct-child combinator only — .nav-mobile-actions' .btn links are
-     grandchildren, so they keep their own .btn-primary/.btn-outline colors
-     instead of being overridden to var(--fg) (which made the cream-on-cream
-     primary button's text unreadable). */
   .nav-mobile > a{ text-decoration:none; color:var(--fg); padding:14px var(--gutter); border-top:1px solid var(--line-soft); font-size:.98rem; }
   .nav-mobile-actions{ display:flex; gap:12px; padding:16px var(--gutter) 20px; border-top:1px solid var(--line-soft); }
   .nav-mobile-actions .btn{ flex:1; justify-content:center; }
@@ -131,23 +157,10 @@
   .hero-intro{ margin-top:24px; max-width:46ch; font-size:clamp(1.02rem, 1.6vw, 1.18rem); color:var(--muted); }
   .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:40px; }
 
-  /* Site-wide atmosphere: a faint grain and vignette tie every section
-     together, so the mood-board's tone reads across the whole page, not
-     just the three discrete accent placements below. Purely ornamental —
-     aria-hidden, fixed, no pointer events, static. */
   .grain-overlay{ position:fixed; inset:0; z-index:200; pointer-events:none; opacity:.05; mix-blend-mode:overlay; background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMTYwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nMC44NScgbnVtT2N0YXZlcz0nMicgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjxmZUNvbG9yTWF0cml4IHR5cGU9J21hdHJpeCcgdmFsdWVzPScwIDAgMCAwIDEgIDAgMCAwIDAgMSAgMCAwIDAgMCAxICAwIDAgMCAwLjUgMCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEwMCUnIGZpbHRlcj0ndXJsKCNuKScvPjwvc3ZnPg=="); background-repeat:repeat; }
   .vignette-overlay{ position:fixed; inset:0; z-index:199; pointer-events:none; background:radial-gradient(circle at 50% 22%, transparent 45%, rgba(0,0,0,.3) 100%); }
 
-  /* Decorative graphic system: Frame + Light (hero, about portrait), Trace
-     (contact). Purely ornamental — aria-hidden, no pointer events, never
-     carries content. */
   .hero-deco{ position:absolute; inset:0; z-index:0; pointer-events:none; }
-  /* Positioned with top:0/right:0 etc (never negative) plus a transform to
-     bleed past the hero's edge — a negative inset % here would genuinely
-     extend the element's layout box beyond the viewport, which some mobile
-     browsers use to widen the whole page's layout viewport even though
-     .hero's overflow:hidden clips it visually. transform doesn't affect
-     layout/scrollWidth, only paint, so it can't trigger that. */
   .hero-light{ position:absolute; top:0; right:0; width:64%; max-width:680px; aspect-ratio:1; background:radial-gradient(circle at 58% 42%, rgba(249,227,182,.32), rgba(247,224,180,.1) 40%, transparent 68%); filter:blur(30px); transform:translate(30%, -34%); }
   .hero-light-beam{ position:absolute; top:0; right:0; width:46%; max-width:420px; height:120%; background:linear-gradient(200deg, rgba(249,227,182,.14), transparent 62%); filter:blur(18px); transform:translate(22%, -8%) rotate(-8deg); }
   .hero-light-low{ position:absolute; bottom:0; left:0; width:40%; max-width:380px; aspect-ratio:1; background:radial-gradient(circle at 50% 50%, rgba(244,241,234,.07), transparent 72%); filter:blur(38px); transform:translate(-28%, 34%); }
@@ -225,9 +238,21 @@
   .contact-band{ text-align:left; }
   .contact-band h2{ font-size:clamp(1.9rem, 4vw, 2.8rem); max-width:20ch; }
   .contact-band p{ margin-top:18px; color:var(--muted); font-size:1.08rem; max-width:52ch; }
-  .contact-actions{ margin-top:32px; display:flex; flex-wrap:wrap; align-items:center; gap:20px; }
-  .contact-email{ font-size:.98rem; color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
+  .contact-alt{ margin-top:28px; color:var(--muted); font-size:.98rem; }
+  .contact-email{ color:var(--muted); text-decoration:none; border-bottom:1px solid var(--line); }
   .contact-email:hover,.contact-email:focus-visible{ color:var(--fg); border-color:var(--fg); }
+
+  .contact-form{ margin-top:36px; max-width:480px; display:flex; flex-direction:column; gap:20px; }
+  .form-row{ display:flex; flex-direction:column; gap:8px; }
+  .form-row label{ font-size:.88rem; color:var(--muted); }
+  .form-row input,.form-row textarea{ font-family:var(--sans); font-size:1rem; color:var(--fg); background:var(--bg-alt); border:1px solid var(--line); border-radius:8px; padding:12px 14px; resize:vertical; }
+  .form-row input::placeholder,.form-row textarea::placeholder{ color:var(--muted-dim); }
+  .form-row input:focus-visible,.form-row textarea:focus-visible{ outline:2px solid var(--fg); outline-offset:2px; border-color:var(--fg); }
+  .form-honeypot{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+  .form-actions{ display:flex; flex-direction:column; align-items:flex-start; gap:12px; }
+  .form-status{ font-size:.92rem; min-height:1.3em; margin:0; }
+  .form-status[data-state="ok"]{ color:var(--ok); }
+  .form-status[data-state="error"]{ color:var(--err); }
 
   .mobile-cta-bar{ display:none; }
   @media (max-width:859px){
@@ -245,9 +270,12 @@
   }
 
   .site-footer{ border-top:1px solid var(--line-soft); padding-block:36px; }
-  .site-footer .container{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; font-size:.88rem; color:var(--muted-dim); }
+  .site-footer .container{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:16px; font-size:.88rem; color:var(--muted-dim); }
   .site-footer a{ color:var(--muted-dim); text-decoration:none; }
   .site-footer a:hover,.site-footer a:focus-visible{ color:var(--fg); }
+  .footer-legal{ display:flex; flex-direction:column; gap:4px; }
+  .footer-links{ display:flex; flex-direction:column; gap:4px; align-items:flex-end; text-align:right; }
+  @media (max-width:520px){ .footer-links{ align-items:flex-start; text-align:left; } }
 </style>
 </head>
 <body>
@@ -268,7 +296,7 @@
     </nav>
     <div class="nav-actions">
       <a class="lang-switch" href="/en.html" hreflang="en">EN</a>
-      <a class="btn btn-outline btn-sm" href="mailto:drengsson@gmail.com">Ræðum saman</a>
+      <a class="btn btn-outline btn-sm" href="#samband">Ræðum saman</a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Opna valmynd">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
       </button>
@@ -279,7 +307,7 @@
     <a href="#um-mig">Um mig</a>
     <a href="#samband">Hafa samband</a>
     <div class="nav-mobile-actions">
-      <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Ræðum saman</a>
+      <a class="btn btn-primary" href="#samband">Ræðum saman</a>
     </div>
   </nav>
 </header>
@@ -361,7 +389,7 @@
       <div class="about-copy">
         <h2>Ég heiti Stefán Drengsson.</h2>
         <p>Ég er kvikmyndagerðarmaður, ljósmyndari og blaðamaður í Reykjavík. Bakgrunnur minn er í rannsóknarblaðamennsku, heimildagerð og miðlun fyrir fyrirtæki.</p>
-        <p>Ég hef starfað við rannsóknarþáttinn Kveik á RÚV og við samskipti og miðlun hjá Alvotech. Sú reynsla hefur kennt mér að finna söguna, spyrja réttu spurninganna og gera flókin viðfangsefni skiljanleg.</p>
+        <p>Ég hef starfað við rannsóknarþáttinn Kveik á RÚV og við samskipti og miðlun hjá Alvotech. Sú reynsla hefur kennt mér að finna söguna, spyrja réttu spurningarin og gera flókin viðfangsefni skiljanleg.</p>
         <p>Það sem heillar mig mest er að kynnast fólki og uppgötva hvað skiptir það máli. Sú forvitni fylgir mér í hvert verkefni, hvort sem það er myndband, ljósmynd eða vefsíða sem á að sýna hver þú ert.</p>
         <p>Þú vinnur beint með mér, frá fyrsta samtali til lokaafurðar.</p>
         <p class="about-note">BA í kvikmynda- og fjölmiðlafræði · MA í blaðamennsku</p>
@@ -401,10 +429,31 @@
         <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <p>Segðu mér aðeins frá fyrirtækinu þínu og því sem þú hefur í huga. Hvort sem þig vantar myndband, ljósmyndir, vefsíðu eða aðstoð við að tengja þetta saman, byrjum við á samtali.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Ræðum saman</a>
-        <a class="contact-email" href="mailto:drengsson@gmail.com">drengsson@gmail.com</a>
-      </div>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="cf-name">Nafn</label>
+          <input type="text" id="cf-name" name="name" autocomplete="name" required maxlength="100" />
+        </div>
+        <div class="form-row">
+          <label for="cf-email">Netfang</label>
+          <input type="email" id="cf-email" name="email" autocomplete="email" required maxlength="200" />
+        </div>
+        <div class="form-row">
+          <label for="cf-message">Skilaboð</label>
+          <textarea id="cf-message" name="message" rows="5" required maxlength="5000"></textarea>
+        </div>
+        <div class="form-honeypot" aria-hidden="true">
+          <label for="cf-company">Fyrirtæki</label>
+          <input type="text" id="cf-company" name="company" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="cf-submit">Senda skilaboð</button>
+          <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <p class="contact-alt">Eða sendu mér tölvupóst beint á <a class="contact-email" href="mailto:drengsson@gmail.com">drengsson@gmail.com</a>.</p>
     </div>
   </section>
 
@@ -412,13 +461,19 @@
 
 <footer class="site-footer">
   <div class="container">
-    <span>© <span id="year">2026</span> Drengsson</span>
-    <span><a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a> · <a href="/en.html" hreflang="en">English</a></span>
+    <div class="footer-legal">
+      <span>© <span id="year">2026</span> Drengsson Pics ehf · kt. 531109-2360 · vsk. nr. 103107</span>
+      <span>Reykjavík, Ísland</span>
+    </div>
+    <div class="footer-links">
+      <span><a href="mailto:drengsson@gmail.com">drengsson@gmail.com</a></span>
+      <span><a href="/personuvernd.html">Persónuvernd</a> · <a href="/en.html" hreflang="en">English</a></span>
+    </div>
   </div>
 </footer>
 
 <div class="mobile-cta-bar">
-  <a class="btn btn-primary" href="mailto:drengsson@gmail.com">Ræðum saman</a>
+  <a class="btn btn-primary" href="#samband">Ræðum saman</a>
 </div>
 
 <script>
@@ -435,6 +490,55 @@ document.getElementById('year').textContent = new Date().getFullYear();
     link.addEventListener('click', function(){
       menu.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+(function(){
+  var form = document.getElementById('contact-form');
+  if(!form) return;
+  var status = document.getElementById('cf-status');
+  var submitBtn = document.getElementById('cf-submit');
+  var MSG = {
+    sending: 'Sendi…',
+    ok: 'Takk fyrir! Skilaboðin voru send og ég svara eins fljótt og ég get.',
+    err: 'Úps, eitthvað fór úrskeiðis. Reyndu aftur eða sendu mér tölvupóst beint á drengsson@gmail.com.',
+    invalid: 'Athugaðu að nafn, netfang og skilaboð séu rétt útfyllt.'
+  };
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var message = form.message.value.trim();
+    var company = form.company.value;
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!name || !message || !emailOk){
+      status.textContent = MSG.invalid;
+      status.setAttribute('data-state','error');
+      return;
+    }
+    submitBtn.disabled = true;
+    status.setAttribute('data-state','');
+    status.textContent = MSG.sending;
+    fetch('/api/contact', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name:name, email:email, message:message, company:company, lang:'is' })
+    }).then(function(r){
+      return r.json().then(function(data){ return {ok:r.ok, data:data}; });
+    }).then(function(res){
+      if(res.ok && res.data && res.data.ok){
+        status.textContent = MSG.ok;
+        status.setAttribute('data-state','ok');
+        form.reset();
+      } else {
+        status.textContent = MSG.err;
+        status.setAttribute('data-state','error');
+      }
+    }).catch(function(){
+      status.textContent = MSG.err;
+      status.setAttribute('data-state','error');
+    }).finally(function(){
+      submitBtn.disabled = false;
     });
   });
 })();
