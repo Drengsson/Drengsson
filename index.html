@@ -287,6 +287,17 @@
   .form-status.is-ok{ color:var(--fg); }
   .form-status a{ color:inherit; }
   .mobile-cta-bar.is-hidden{ display:none; }
+
+  .work-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+  .work-item{ display:grid; grid-template-columns:1fr; gap:6px 40px; padding:26px 0; border-bottom:1px solid var(--line-soft); }
+  .work-kind{ font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-dim); padding-top:6px; }
+  .work-item h3{ font-size:clamp(1.35rem, 2.4vw, 1.7rem); }
+  .work-item p{ color:var(--muted); font-size:.98rem; max-width:58ch; margin-top:8px; }
+  .work-role{ display:block; margin-top:8px; font-size:.86rem; color:var(--muted-dim); }
+  @media (min-width:820px){ .work-item{ grid-template-columns:200px 1fr; } }
+  .clients{ margin-top:clamp(40px, 6vw, 56px); font-size:.92rem; color:var(--muted-dim); max-width:70ch; }
+  .clients strong{ font-weight:500; color:var(--muted); }
+  .clients span{ white-space:nowrap; }
 </style>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -305,6 +316,7 @@
       <span class="brand-name">Drengsson</span>
     </a>
     <nav class="nav-desktop" aria-label="Aðalvalmynd">
+      <a href="#verkefni">Verkefni</a>
       <a href="#thjonusta">Þjónusta</a>
       <a href="#um-mig">Um mig</a>
       <a href="#samband">Hafa samband</a>
@@ -318,6 +330,7 @@
     </div>
   </div>
   <nav class="nav-mobile" id="mobile-menu" data-nav-mobile aria-label="Valmynd fyrir síma">
+    <a href="#verkefni">Verkefni</a>
     <a href="#thjonusta">Þjónusta</a>
     <a href="#um-mig">Um mig</a>
     <a href="#samband">Hafa samband</a>
@@ -346,7 +359,7 @@
         <a class="btn btn-primary" href="#samband">Ræðum saman</a>
         <a class="btn btn-outline" href="#thjonusta">Það sem ég geri</a>
       </div>
-      <p class="hero-proof"><strong>Reynsla:</strong> <span>Kveikur á RÚV</span> · <span>Alvotech</span> · <span>Edduverðlaun</span> · <span>Meðhöfundur bókarinnar <em>Ekkert að fela</em></span></p>
+      <p class="hero-proof"><strong>Reynsla:</strong> <span>Kveikur á RÚV</span> · <span>Alvotech</span> · <span>Blaðamannaverðlaunin 2019</span> · <span>Meðhöfundur bókarinnar <em>Ekkert að fela</em></span></p>
     </div>
   </section>
 
@@ -359,6 +372,60 @@
         <p class="approach-body">Gervigreind getur búið til mynd. Ég hef áhuga á því sem gerist þegar maður mætir á staðinn: samtalinu, handverkinu og óvæntu augnablikunum. Ég hitti fólkið, spyr spurninga og fanga það sem gerir fyrirtækið þitt að því sem það er.</p>
         <p class="approach-body" style="margin-top:16px;">Úr því verða myndbönd og ljósmyndir sem byggja á raunverulegri reynslu og segja sögu sem fólk getur skilið og tengt við.</p>
       </div>
+    </div>
+  </section>
+
+  <section id="verkefni" class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <h2>Valin verkefni</h2>
+        <p class="lede">Rúm tuttugu ár í sjónvarpi, heimildarmyndum og miðlun fyrir fyrirtæki. Hér er brot af því.</p>
+      </div>
+      <ul class="work-list">
+        <li class="work-item">
+          <span class="work-kind">Sjónvarpsauglýsing</span>
+          <div>
+            <h3>Alvotech með Anítu Briem</h3>
+            <p>Tveggja mínútna auglýsing sem sýnd var rétt fyrir Áramótaskaupið 2025.<span class="work-role">Framleiðsla</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Sjónvarpsþættir</span>
+          <div>
+            <h3>Náttúran kallar</h3>
+            <p>Sjónvarpsþættir með Láru Ómarsdóttur.<span class="work-role">Myndataka, klipping og öll eftirvinnsla</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Fréttaskýring · Kveikur</span>
+          <div>
+            <h3>Samherjamálið</h3>
+            <p>Umfjöllun Kveiks um starfsemi Samherja í Namibíu. Hlaut Blaðamannaverðlaunin 2019.<span class="work-role">Rannsóknarvinna, framleiðsla, myndataka og klipping</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Heimildarmynd</span>
+          <div>
+            <h3>Halla Har</h3>
+            <p>Heimildarmynd um listakonuna Höllu Har.<span class="work-role">Myndataka, klipping og eftirvinnsla</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Heimildarmynd · RÚV</span>
+          <div>
+            <h3>Team Spark</h3>
+            <p>Verkfræðinemar Háskóla Íslands í Formula Student-keppninni á Silverstone. Sýnd á RÚV 2015.<span class="work-role">Leikstjórn, myndataka og klipping</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Sjónvarpssería</span>
+          <div>
+            <h3>Ævintýraboxið</h3>
+            <p>Tíu þátta sería um útiveru og hreyfingu.<span class="work-role">Framleiðsla, myndataka, klipping og markaðsmál</span></p>
+          </div>
+        </li>
+      </ul>
+      <p class="clients"><strong>Meðal verkkaupa:</strong> <span>Alvotech</span> · <span>RÚV</span> · <span>Háskóli Íslands</span> · <span>Íslenskt lamb</span> · <span>Reebok Fitness</span> · <span>Ferðaþjónusta bænda</span></p>
     </div>
   </section>
 
@@ -408,7 +475,7 @@
         <p>Ég starfaði við rannsóknarþáttinn Kveik á RÚV, meðal annars við umfjöllunina um Samherjaskjölin, og er einn höfunda bókarinnar <em>Ekkert að fela</em>. Síðar sá ég um myndbandagerð og stafrænt efni hjá Alvotech. Sú reynsla hefur kennt mér að finna söguna, spyrja réttu spurninganna og gera flókin viðfangsefni skiljanleg.</p>
         <p>Það sem heillar mig mest er að kynnast fólki og uppgötva hvað skiptir það máli. Sú forvitni fylgir mér í hvert verkefni, hvort sem það er myndband, ljósmynd eða vefsíða sem á að sýna hver þú ert.</p>
         <p>Þú vinnur beint með mér, frá fyrsta samtali til lokaafurðar.</p>
-        <p class="about-note">Edduverðlaun · Verðlaun fyrir rannsóknarblaðamennsku · BA í kvikmynda- og fjölmiðlafræði · MA í blaðamennsku</p>
+        <p class="about-note">Blaðamannaverðlaunin 2019 og Edduverðlaun með Kveik · BA í kvikmynda- og fjölmiðlafræði · MA í blaðamennsku</p>
       </div>
     </div>
   </section>

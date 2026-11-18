@@ -287,6 +287,17 @@
   .form-status.is-ok{ color:var(--fg); }
   .form-status a{ color:inherit; }
   .mobile-cta-bar.is-hidden{ display:none; }
+
+  .work-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+  .work-item{ display:grid; grid-template-columns:1fr; gap:6px 40px; padding:26px 0; border-bottom:1px solid var(--line-soft); }
+  .work-kind{ font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-dim); padding-top:6px; }
+  .work-item h3{ font-size:clamp(1.35rem, 2.4vw, 1.7rem); }
+  .work-item p{ color:var(--muted); font-size:.98rem; max-width:58ch; margin-top:8px; }
+  .work-role{ display:block; margin-top:8px; font-size:.86rem; color:var(--muted-dim); }
+  @media (min-width:820px){ .work-item{ grid-template-columns:200px 1fr; } }
+  .clients{ margin-top:clamp(40px, 6vw, 56px); font-size:.92rem; color:var(--muted-dim); max-width:70ch; }
+  .clients strong{ font-weight:500; color:var(--muted); }
+  .clients span{ white-space:nowrap; }
 </style>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -305,6 +316,7 @@
       <span class="brand-name">Drengsson</span>
     </a>
     <nav class="nav-desktop" aria-label="Main navigation">
+      <a href="#work">Work</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -318,6 +330,7 @@
     </div>
   </div>
   <nav class="nav-mobile" id="mobile-menu" data-nav-mobile aria-label="Mobile menu">
+    <a href="#work">Work</a>
     <a href="#services">Services</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
@@ -346,7 +359,7 @@
         <a class="btn btn-primary" href="#contact">Let's talk</a>
         <a class="btn btn-outline" href="#services">What I do</a>
       </div>
-      <p class="hero-proof"><strong>Experience:</strong> <span>Kveikur, RÚV</span> · <span>Alvotech</span> · <span>Edda Awards</span> · <span>Co-author of the book <em>Ekkert að fela</em></span></p>
+      <p class="hero-proof"><strong>Experience:</strong> <span>Kveikur, RÚV</span> · <span>Alvotech</span> · <span>Icelandic Journalism Award 2019</span> · <span>Co-author of the book <em>Ekkert að fela</em></span></p>
     </div>
   </section>
 
@@ -359,6 +372,60 @@
         <p class="approach-body">AI can generate an image. I'm interested in what happens when you show up: the conversation, the craft, the unexpected moment. I meet the people, ask questions and capture the details that make your business its own.</p>
         <p class="approach-body" style="margin-top:16px;">The result is video and photography rooted in real experience, shaped into a story people can understand and connect with.</p>
       </div>
+    </div>
+  </section>
+
+  <section id="work" class="section-border-top">
+    <div class="container">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p class="lede">Over twenty years in television, documentaries and communication for businesses. Here’s some of it.</p>
+      </div>
+      <ul class="work-list">
+        <li class="work-item">
+          <span class="work-kind">TV commercial</span>
+          <div>
+            <h3>Alvotech with Aníta Briem</h3>
+            <p>A two-minute commercial aired just before Áramótaskaupið, Iceland’s New Year’s Eve comedy special, in 2025.<span class="work-role">Production</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">TV series</span>
+          <div>
+            <h3>Náttúran kallar</h3>
+            <p>A television series with Lára Ómarsdóttir.<span class="work-role">Camera, editing and all post-production</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Investigative · Kveikur</span>
+          <div>
+            <h3>The Samherji files</h3>
+            <p>Kveikur’s investigation into Samherji’s operations in Namibia. Winner of the Icelandic Journalism Award 2019.<span class="work-role">Research, production, camera and editing</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Documentary</span>
+          <div>
+            <h3>Halla Har</h3>
+            <p>A documentary about the artist Halla Har.<span class="work-role">Camera, editing and post-production</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">Documentary · RÚV</span>
+          <div>
+            <h3>Team Spark</h3>
+            <p>University of Iceland engineering students at Formula Student, Silverstone. Broadcast on RÚV in 2015.<span class="work-role">Direction, camera and editing</span></p>
+          </div>
+        </li>
+        <li class="work-item">
+          <span class="work-kind">TV series</span>
+          <div>
+            <h3>Ævintýraboxið</h3>
+            <p>A ten-part series about getting outdoors and moving.<span class="work-role">Production, camera, editing and marketing</span></p>
+          </div>
+        </li>
+      </ul>
+      <p class="clients"><strong>Clients include:</strong> <span>Alvotech</span> · <span>RÚV</span> · <span>University of Iceland</span> · <span>Íslenskt lamb</span> · <span>Reebok Fitness</span> · <span>Icelandic Farm Holidays</span></p>
     </div>
   </section>
 
@@ -408,7 +475,7 @@
         <p>I worked on RÚV's investigative programme Kveikur, including its reporting on the Samherji files, and co-wrote the book <em>Ekkert að fela</em> (Nothing to Hide). Later I led video and digital content at Alvotech. That experience has taught me to find the story, ask useful questions and turn complex subjects into something people can understand.</p>
         <p>What draws me to this work is meeting people and discovering what matters to them. I bring that curiosity to every assignment, whether it's a film, a portrait or a website that needs to express who you are.</p>
         <p>You work directly with me, from the first conversation to the finished result.</p>
-        <p class="about-note">Edda Awards · Investigative journalism award · BA in Film and Media · MA in Journalism</p>
+        <p class="about-note">Icelandic Journalism Award 2019 and Edda Award with Kveikur · BA in Film and Media · MA in Journalism</p>
       </div>
     </div>
   </section>
