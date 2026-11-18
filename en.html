@@ -261,6 +261,32 @@
   .footer-legal{ display:flex; flex-direction:column; gap:4px; }
   .footer-links{ display:flex; flex-direction:column; gap:4px; align-items:flex-end; text-align:right; }
   @media (max-width:520px){ .footer-links{ align-items:flex-start; text-align:left; } }
+
+  .hero-proof{ margin-top:44px; padding-top:20px; border-top:1px solid var(--line-soft); max-width:46rem; font-size:.85rem; letter-spacing:.01em; color:var(--muted-dim); }
+  .hero-proof strong{ font-weight:500; color:var(--muted); }
+  .hero-proof span{ white-space:nowrap; }
+  .form-note{ font-size:.82rem; color:var(--muted-dim); }
+  .form-note a{ color:inherit; border-bottom:1px solid var(--line); text-decoration:none; }
+
+  .contact-grid{ display:grid; grid-template-columns:1fr; gap:48px; align-items:start; }
+  @media (min-width:860px){ .contact-grid{ grid-template-columns:1fr 1fr; gap:72px; } }
+  .contact-alt{ margin-top:28px; font-size:.95rem; color:var(--muted-dim); }
+  .contact-form{ display:flex; flex-direction:column; gap:18px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field label{ font-size:.85rem; color:var(--muted); }
+  .field input,.field textarea{ font:inherit; font-size:1rem; color:var(--fg); background:var(--bg-alt); border:1px solid var(--line); border-radius:8px; padding:13px 14px; transition:border-color .15s ease; }
+  .field textarea{ min-height:150px; resize:vertical; }
+  .field input:focus,.field textarea:focus{ outline:none; border-color:var(--fg); }
+  .field input:focus-visible,.field textarea:focus-visible{ outline:2px solid var(--fg); outline-offset:2px; }
+  .hp-field{ position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+  .form-foot{ display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:4px; }
+  .form-foot .btn{ border:none; }
+  .form-foot .btn[disabled]{ opacity:.6; cursor:wait; }
+  .form-status{ font-size:.92rem; color:var(--muted); min-height:1.4em; }
+  .form-status.is-error{ color:#e6a39a; }
+  .form-status.is-ok{ color:var(--fg); }
+  .form-status a{ color:inherit; }
+  .mobile-cta-bar.is-hidden{ display:none; }
 </style>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -285,7 +311,7 @@
     </nav>
     <div class="nav-actions">
       <a class="lang-switch" href="/" hreflang="is">IS</a>
-      <a class="btn btn-outline btn-sm" href="mailto:stefan@drengsson.is">Let's talk</a>
+      <a class="btn btn-outline btn-sm" href="#contact">Let's talk</a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
       </button>
@@ -296,7 +322,7 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
     <div class="nav-mobile-actions">
-      <a class="btn btn-primary" href="mailto:stefan@drengsson.is">Let's talk</a>
+      <a class="btn btn-primary" href="#contact">Let's talk</a>
     </div>
   </nav>
 </header>
@@ -317,9 +343,10 @@
       <h1>Real people. Real stories.</h1>
       <p class="hero-intro">I'm Stefán Drengsson, a filmmaker and photographer. I help businesses show who they are through the people, work and moments that make them worth knowing.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#services">What I do</a>
-        <a class="btn btn-outline" href="mailto:stefan@drengsson.is">Let's talk</a>
+        <a class="btn btn-primary" href="#contact">Let's talk</a>
+        <a class="btn btn-outline" href="#services">What I do</a>
       </div>
+      <p class="hero-proof"><strong>Experience:</strong> <span>Kveikur, RÚV</span> · <span>Alvotech</span> · <span>Edda Awards</span> · <span>Co-author of the book <em>Ekkert að fela</em></span></p>
     </div>
   </section>
 
@@ -378,10 +405,10 @@
       <div class="about-copy">
         <h2>I'm Stefán Drengsson.</h2>
         <p>I'm a filmmaker, photographer and journalist based in Reykjavík. My background spans investigative journalism, documentary storytelling and communication for businesses.</p>
-        <p>I've worked on RÚV's investigative programme Kveikur and in corporate communications at Alvotech. That experience has taught me to find the story, ask useful questions and turn complex subjects into something people can understand.</p>
+        <p>I worked on RÚV's investigative programme Kveikur, including its reporting on the Samherji files, and co-wrote the book <em>Ekkert að fela</em> (Nothing to Hide). Later I led video and digital content at Alvotech. That experience has taught me to find the story, ask useful questions and turn complex subjects into something people can understand.</p>
         <p>What draws me to this work is meeting people and discovering what matters to them. I bring that curiosity to every assignment, whether it's a film, a portrait or a website that needs to express who you are.</p>
         <p>You work directly with me, from the first conversation to the finished result.</p>
-        <p class="about-note">BA in Film and Media · MA in Journalism</p>
+        <p class="about-note">Edda Awards · Investigative journalism award · BA in Film and Media · MA in Journalism</p>
       </div>
     </div>
   </section>
@@ -412,16 +439,38 @@
   </section>
 
   <section id="contact" class="section-border-top">
-    <div class="container contact-band">
-      <h2>What would you like people to see?</h2>
-      <svg class="trace-accent" viewBox="0 0 130 46" aria-hidden="true" focusable="false">
-        <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <p>Tell me a little about your business and what you have in mind. Whether you need a film, photographs, a website or help bringing it together, we can start with a conversation.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:stefan@drengsson.is">Let's talk</a>
-        <a class="contact-email" href="mailto:stefan@drengsson.is">stefan@drengsson.is</a>
+    <div class="container contact-band contact-grid">
+      <div>
+        <h2>What would you like people to see?</h2>
+        <svg class="trace-accent" viewBox="0 0 130 46" aria-hidden="true" focusable="false">
+          <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>Tell me a little about your business and what you have in mind. Whether you need a film, photographs, a website or help bringing it together, we can start with a conversation.</p>
+        <p class="contact-alt">Or email me directly at <a class="contact-email" href="mailto:stefan@drengsson.is">stefan@drengsson.is</a></p>
       </div>
+      <form class="contact-form" data-contact-form novalidate data-msgs='{"sending":"Sending…","ok":"Thanks, your message is on its way to me. I’ll be in touch soon.","error":"Something went wrong. Please try again or email me at <a href=\"mailto:stefan@drengsson.is\">stefan@drengsson.is</a>."}'>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+        </div>
+        <div class="field">
+          <label for="cf-message">What do you have in mind?</label>
+          <textarea id="cf-message" name="message" maxlength="5000" required></textarea>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="cf-company">Company</label>
+          <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Send</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </div>
+        <p class="form-note">Your details are only used to reply to you. See the <a href="/personuvernd-en.html">privacy policy</a>.</p>
+      </form>
     </div>
   </section>
 
@@ -441,7 +490,7 @@
 </footer>
 
 <div class="mobile-cta-bar">
-  <a class="btn btn-primary" href="mailto:stefan@drengsson.is">Let's talk</a>
+  <a class="btn btn-primary" href="#contact">Let's talk</a>
 </div>
 
 <script>
@@ -460,6 +509,39 @@ document.getElementById('year').textContent = new Date().getFullYear();
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+})();
+(function(){
+  var form = document.querySelector('[data-contact-form]');
+  if(!form) return;
+  var status = form.querySelector('[data-form-status]');
+  var button = form.querySelector('button[type=submit]');
+  var t = JSON.parse(form.getAttribute('data-msgs'));
+  function show(msg, cls){ status.innerHTML = msg; status.className = 'form-status ' + (cls || ''); }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var data = {
+      name: form.elements['name'].value, email: form.elements['email'].value, message: form.elements['message'].value,
+      company: form.elements['company'].value, lang: document.documentElement.lang === 'en' ? 'en' : 'is'
+    };
+    button.disabled = true; show(t.sending);
+    fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok && j.ok }; }); })
+      .then(function(res){
+        if(res.ok){ form.reset(); show(t.ok, 'is-ok'); }
+        else { show(t.error, 'is-error'); }
+      })
+      .catch(function(){ show(t.error, 'is-error'); })
+      .then(function(){ button.disabled = false; });
+  });
+})();
+(function(){
+  var bar = document.querySelector('.mobile-cta-bar');
+  var target = document.querySelector('.contact-band');
+  if(!bar || !target || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ bar.classList.toggle('is-hidden', en.isIntersecting); });
+  }, { rootMargin: '0px 0px -10% 0px' }).observe(target);
 })();
 </script>
 </body>

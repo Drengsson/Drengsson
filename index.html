@@ -261,6 +261,32 @@
   .footer-legal{ display:flex; flex-direction:column; gap:4px; }
   .footer-links{ display:flex; flex-direction:column; gap:4px; align-items:flex-end; text-align:right; }
   @media (max-width:520px){ .footer-links{ align-items:flex-start; text-align:left; } }
+
+  .hero-proof{ margin-top:44px; padding-top:20px; border-top:1px solid var(--line-soft); max-width:46rem; font-size:.85rem; letter-spacing:.01em; color:var(--muted-dim); }
+  .hero-proof strong{ font-weight:500; color:var(--muted); }
+  .hero-proof span{ white-space:nowrap; }
+  .form-note{ font-size:.82rem; color:var(--muted-dim); }
+  .form-note a{ color:inherit; border-bottom:1px solid var(--line); text-decoration:none; }
+
+  .contact-grid{ display:grid; grid-template-columns:1fr; gap:48px; align-items:start; }
+  @media (min-width:860px){ .contact-grid{ grid-template-columns:1fr 1fr; gap:72px; } }
+  .contact-alt{ margin-top:28px; font-size:.95rem; color:var(--muted-dim); }
+  .contact-form{ display:flex; flex-direction:column; gap:18px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field label{ font-size:.85rem; color:var(--muted); }
+  .field input,.field textarea{ font:inherit; font-size:1rem; color:var(--fg); background:var(--bg-alt); border:1px solid var(--line); border-radius:8px; padding:13px 14px; transition:border-color .15s ease; }
+  .field textarea{ min-height:150px; resize:vertical; }
+  .field input:focus,.field textarea:focus{ outline:none; border-color:var(--fg); }
+  .field input:focus-visible,.field textarea:focus-visible{ outline:2px solid var(--fg); outline-offset:2px; }
+  .hp-field{ position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+  .form-foot{ display:flex; flex-wrap:wrap; align-items:center; gap:16px; margin-top:4px; }
+  .form-foot .btn{ border:none; }
+  .form-foot .btn[disabled]{ opacity:.6; cursor:wait; }
+  .form-status{ font-size:.92rem; color:var(--muted); min-height:1.4em; }
+  .form-status.is-error{ color:#e6a39a; }
+  .form-status.is-ok{ color:var(--fg); }
+  .form-status a{ color:inherit; }
+  .mobile-cta-bar.is-hidden{ display:none; }
 </style>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -285,7 +311,7 @@
     </nav>
     <div class="nav-actions">
       <a class="lang-switch" href="/en.html" hreflang="en">EN</a>
-      <a class="btn btn-outline btn-sm" href="mailto:stefan@drengsson.is">Ræðum saman</a>
+      <a class="btn btn-outline btn-sm" href="#samband">Ræðum saman</a>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Opna valmynd">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round"/></svg>
       </button>
@@ -296,7 +322,7 @@
     <a href="#um-mig">Um mig</a>
     <a href="#samband">Hafa samband</a>
     <div class="nav-mobile-actions">
-      <a class="btn btn-primary" href="mailto:stefan@drengsson.is">Ræðum saman</a>
+      <a class="btn btn-primary" href="#samband">Ræðum saman</a>
     </div>
   </nav>
 </header>
@@ -317,9 +343,10 @@
       <h1>Raunverulegt fólk. Sannar sögur.</h1>
       <p class="hero-intro">Ég heiti Stefán Drengsson og er kvikmyndagerðarmaður og ljósmyndari. Ég hjálpa fyrirtækjum að sýna hver þau eru með því að fanga fólkið, vinnuna og augnablikin sem einkenna þau.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#thjonusta">Það sem ég geri</a>
-        <a class="btn btn-outline" href="mailto:stefan@drengsson.is">Ræðum saman</a>
+        <a class="btn btn-primary" href="#samband">Ræðum saman</a>
+        <a class="btn btn-outline" href="#thjonusta">Það sem ég geri</a>
       </div>
+      <p class="hero-proof"><strong>Reynsla:</strong> <span>Kveikur á RÚV</span> · <span>Alvotech</span> · <span>Edduverðlaun</span> · <span>Meðhöfundur bókarinnar <em>Ekkert að fela</em></span></p>
     </div>
   </section>
 
@@ -378,10 +405,10 @@
       <div class="about-copy">
         <h2>Ég heiti Stefán Drengsson.</h2>
         <p>Ég er kvikmyndagerðarmaður, ljósmyndari og blaðamaður í Reykjavík. Bakgrunnur minn er í rannsóknarblaðamennsku, heimildagerð og miðlun fyrir fyrirtæki.</p>
-        <p>Ég hef starfað við rannsóknarþáttinn Kveik á RÚV og við samskipti og miðlun hjá Alvotech. Sú reynsla hefur kennt mér að finna söguna, spyrja réttu spurningarin og gera flókin viðfangsefni skiljanleg.</p>
+        <p>Ég starfaði við rannsóknarþáttinn Kveik á RÚV, meðal annars við umfjöllunina um Samherjaskjölin, og er einn höfunda bókarinnar <em>Ekkert að fela</em>. Síðar sá ég um myndbandagerð og stafrænt efni hjá Alvotech. Sú reynsla hefur kennt mér að finna söguna, spyrja réttu spurninganna og gera flókin viðfangsefni skiljanleg.</p>
         <p>Það sem heillar mig mest er að kynnast fólki og uppgötva hvað skiptir það máli. Sú forvitni fylgir mér í hvert verkefni, hvort sem það er myndband, ljósmynd eða vefsíða sem á að sýna hver þú ert.</p>
         <p>Þú vinnur beint með mér, frá fyrsta samtali til lokaafurðar.</p>
-        <p class="about-note">BA í kvikmynda- og fjölmiðlafræði · MA í blaðamennsku</p>
+        <p class="about-note">Edduverðlaun · Verðlaun fyrir rannsóknarblaðamennsku · BA í kvikmynda- og fjölmiðlafræði · MA í blaðamennsku</p>
       </div>
     </div>
   </section>
@@ -412,16 +439,38 @@
   </section>
 
   <section id="samband" class="section-border-top">
-    <div class="container contact-band">
-      <h2>Hvað viltu sýna?</h2>
-      <svg class="trace-accent" viewBox="0 0 130 46" aria-hidden="true" focusable="false">
-        <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <p>Segðu mér aðeins frá fyrirtækinu þínu og því sem þú hefur í huga. Hvort sem þig vantar myndband, ljósmyndir, vefsíðu eða aðstoð við að tengja þetta saman, byrjum við á samtali.</p>
-      <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:stefan@drengsson.is">Ræðum saman</a>
-        <a class="contact-email" href="mailto:stefan@drengsson.is">stefan@drengsson.is</a>
+    <div class="container contact-band contact-grid">
+      <div>
+        <h2>Hvað viltu sýna?</h2>
+        <svg class="trace-accent" viewBox="0 0 130 46" aria-hidden="true" focusable="false">
+          <path d="M9,32 C6,17 22,8 35,14 C48,20 44,35 29,33 C18,31.5 18,23 29,20.5 C44,17 63,23 82,18 C99,13.5 112,15 124,9" fill="none" stroke="#d8d2c4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p>Segðu mér aðeins frá fyrirtækinu þínu og því sem þú hefur í huga. Hvort sem þig vantar myndband, ljósmyndir, vefsíðu eða aðstoð við að tengja þetta saman, byrjum við á samtali.</p>
+        <p class="contact-alt">Eða sendu mér póst beint á <a class="contact-email" href="mailto:stefan@drengsson.is">stefan@drengsson.is</a></p>
       </div>
+      <form class="contact-form" data-contact-form novalidate data-msgs='{"sending":"Sendi…","ok":"Takk, skilaboðin eru komin til mín. Ég hef samband fljótlega.","error":"Eitthvað fór úrskeiðis. Prófaðu aftur eða sendu mér póst á <a href=\"mailto:stefan@drengsson.is\">stefan@drengsson.is</a>."}'>
+        <div class="field">
+          <label for="cf-name">Nafn</label>
+          <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="cf-email">Netfang</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+        </div>
+        <div class="field">
+          <label for="cf-message">Hvað hefur þú í huga?</label>
+          <textarea id="cf-message" name="message" maxlength="5000" required></textarea>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="cf-company">Fyrirtæki</label>
+          <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Senda</button>
+          <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </div>
+        <p class="form-note">Upplýsingarnar eru eingöngu notaðar til að svara þér. Sjá <a href="/personuvernd.html">persónuvernd</a>.</p>
+      </form>
     </div>
   </section>
 
@@ -441,7 +490,7 @@
 </footer>
 
 <div class="mobile-cta-bar">
-  <a class="btn btn-primary" href="mailto:stefan@drengsson.is">Ræðum saman</a>
+  <a class="btn btn-primary" href="#samband">Ræðum saman</a>
 </div>
 
 <script>
@@ -460,6 +509,39 @@ document.getElementById('year').textContent = new Date().getFullYear();
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+})();
+(function(){
+  var form = document.querySelector('[data-contact-form]');
+  if(!form) return;
+  var status = form.querySelector('[data-form-status]');
+  var button = form.querySelector('button[type=submit]');
+  var t = JSON.parse(form.getAttribute('data-msgs'));
+  function show(msg, cls){ status.innerHTML = msg; status.className = 'form-status ' + (cls || ''); }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var data = {
+      name: form.elements['name'].value, email: form.elements['email'].value, message: form.elements['message'].value,
+      company: form.elements['company'].value, lang: document.documentElement.lang === 'en' ? 'en' : 'is'
+    };
+    button.disabled = true; show(t.sending);
+    fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok && j.ok }; }); })
+      .then(function(res){
+        if(res.ok){ form.reset(); show(t.ok, 'is-ok'); }
+        else { show(t.error, 'is-error'); }
+      })
+      .catch(function(){ show(t.error, 'is-error'); })
+      .then(function(){ button.disabled = false; });
+  });
+})();
+(function(){
+  var bar = document.querySelector('.mobile-cta-bar');
+  var target = document.querySelector('.contact-band');
+  if(!bar || !target || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ bar.classList.toggle('is-hidden', en.isIntersecting); });
+  }, { rootMargin: '0px 0px -10% 0px' }).observe(target);
 })();
 </script>
 </body>

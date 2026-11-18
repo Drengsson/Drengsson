@@ -110,7 +110,7 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Drengsson vefsíða <contact@drengsson.is>',
-        to: ['drengsson@gmail.com'],
+        to: ['stefan@drengsson.is'],
         reply_to: email,
         subject,
         text: textBody,
